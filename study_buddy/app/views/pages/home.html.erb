@@ -1,5 +1,12 @@
 <h1>Home page</h1>
 <p>This is a temporary test home page</p>
 
+<% if current_user %>
+    <p><%= link_to 'Sign out', destroy_user_session_path,
+    method: :delete%></p>
+    <p><%= link_to 'Profile', users_profile_path%>
+<% else %>
 <p><%= link_to 'Sign up', new_user_registration_path%></p>
+<p><%= link_to 'Sign in', new_user_session_path%></p>
+<% end %>
 <p><%= link_to 'About', pages_about_path%></p>

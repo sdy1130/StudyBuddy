@@ -1,0 +1,12 @@
+<h1>Users Profile</h1>
+<p>This is the user profile:</p>
+
+<% if current_user.name %>
+    <p><%= current_user.name%></p>
+<% else %>
+    <p> name is null </p>
+<% end %>
+<p><%= current_user.email%></p>
+
+<p><%= link_to 'Edit User', edit_user_registration_path%></p>
+<p><%= link_to 'Home', root_path%></p>
