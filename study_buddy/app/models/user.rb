@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
     attr_accessor :password
 
-    validates :name, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
+    # validates :name, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
     # validates :age, :numericality => { :only_integer => true }
     # validates :age, numericality: { greater_than: 15, less_than: 100 }
     validates :email, :presence => true, :uniqueness => true, format: { with: URI::MailTo::EMAIL_REGEXP } 
