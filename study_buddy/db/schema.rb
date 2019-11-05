@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_031819) do
+ActiveRecord::Schema.define(version: 2019_11_05_052707) do
 
   create_table "comments", force: :cascade do |t|
     t.string "description"
@@ -19,44 +19,48 @@ ActiveRecord::Schema.define(version: 2019_10_31_031819) do
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "description", null: false
+    t.string "name"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "url", null: false
-    t.string "name", null: false
-    t.string "description", null: false
+    t.string "url"
+    t.string "name"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "description", null: false
-    t.string "categories", null: false
+    t.string "title"
+    t.string "description"
+    t.string "categories"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "repos", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "description", null: false
-    t.boolean "public", null: false
+    t.string "name"
+    t.string "description"
+    t.boolean "public"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "age", null: false
-    t.string "email", null: false
-    t.string "encrypted_password"
-    t.string "salt"
+    t.string "name"
+    t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
