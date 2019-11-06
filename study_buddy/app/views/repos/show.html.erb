@@ -1,0 +1,18 @@
+<p>
+<strong>Repo Name:</strong>
+<%= @repo.name %>
+</p>
+
+<p>
+<strong>Description:</strong>
+<%= @repo.description %>
+</p>
+
+<h2>Items</h2>
+<%= render @repo.items %>
+
+<h2>Add an Item:</h2>
+<%= render 'items/form' %>
+
+<%= link_to 'Edit', edit_repo_path(@repo) %> |
+<%= link_to 'Back', repos_path %>

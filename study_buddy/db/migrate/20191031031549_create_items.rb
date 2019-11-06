@@ -4,7 +4,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :url
       t.string :name
       t.string :description
-
+      
+      t.references :repo, null: false, foreign_key: true
       t.timestamps
     end
   end
