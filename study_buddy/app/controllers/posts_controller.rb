@@ -1,13 +1,19 @@
 class PostsController < ApplicationController
-
     def new
+        @post = Post.new
     end
 
     def create
         @post = Post.new(post_params)
 
-        @post.save
-        redirect_to @post
+        post_params_2 = post_params
+        post_params_2[:user] = 
+
+        if @post.save
+            redirect_to @post
+          else
+            render 'new'
+          end
     end
 
     def show
@@ -16,7 +22,6 @@ class PostsController < ApplicationController
 
     private
         def post_params
-            # Still need to add categories
-            params.require(:post).permit(:title, :description)
+            params.require(:post).permit(:title, :description, :category)
         end
 end

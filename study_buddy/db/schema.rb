@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_220012) do
+ActiveRecord::Schema.define(version: 2019_11_07_000652) do
 
   create_table "Repos_Users", id: false, force: :cascade do |t|
     t.integer "Repo_id", null: false
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 2019_11_06_220012) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "post_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -36,18 +40,20 @@ ActiveRecord::Schema.define(version: 2019_11_06_220012) do
     t.string "url"
     t.string "name"
     t.string "description"
-    t.integer "repo_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["repo_id"], name: "index_items_on_repo_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.string "categories"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.integer "course_id"
+    t.index ["course_id"], name: "index_posts_on_course_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "repos", force: :cascade do |t|
@@ -72,5 +78,4 @@ ActiveRecord::Schema.define(version: 2019_11_06_220012) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "items", "repos"
 end

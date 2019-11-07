@@ -5,5 +5,5 @@ class Post < ApplicationRecord
 
     validates :title, :presence => true, :uniqueness => true, :length => { :in => 3..30 }
     validates :description, :presence => true
-    # validates :categories, :presence => true 
+    # validates :category, :presence => true
 end
