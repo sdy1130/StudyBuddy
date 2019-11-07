@@ -4,5 +4,4 @@ class Repo < ApplicationRecord
 
     validates :name, :presence => true, :uniqueness => true, :length => { :in => 3..30 }
     validates :description, :presence => true
-
 end
