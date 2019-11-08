@@ -1,23 +1,58 @@
 class PostsController < ApplicationController
     def new
         @post = Post.new
+        @course = Course.find(params[:course_id])
+    end
+
+    def edit
+        @course = Course.find(params[:course_id])
+        @post = @course.posts.find(params[:id])
     end
 
     def create
-        @post = Post.new(post_params)
+        @course = Course.find(params[:course_id])
 
+        # Add current user id to the hash
         post_params_2 = post_params
-        post_params_2[:user] = 
+        # HACK HACK HACK
+        # HACK HACK HACK
+        # HACK HACK HACK
+        post_params_2[:user_id] = 1
 
-        if @post.save
-            redirect_to @post
-          else
-            render 'new'
-          end
+        @post = @course.posts.create(post_params_2)
+        redirect_to course_post_path(@course, @post)
     end
 
+    def update
+        @course = Course.find(params[:course_id])
+        @post = @course.posts.find(params[:id])
+
+        # Add current course and user id to the hash
+        post_params_2 = post_params
+        # HACK HACK HACK
+        # HACK HACK HACK
+        # HACK HACK HACK
+        post_params_2[:course_id] = @course.id
+        post_params_2[:user_id] = 1
+
+        if @post.update(post_params_2)
+            redirect_to course_post_path(@course, @post)
+        else
+            render 'edit'
+        end
+      end
+
     def show
-        @post = Post.find(params[:id])
+        @course = Course.find(params[:course_id])
+        @post = @course.posts.find(params[:id])
+    end
+
+    def destroy
+        @course = Course.find(params[:course_id])
+        @post = @course.posts.find(params[:id])
+        @post.destroy
+
+        redirect_to course_path(@course)
     end
 
     private

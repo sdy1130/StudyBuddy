@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'pages/about'
   devise_for :users
-  resources :posts
-  resources :comments
+  
+  resources :courses do
+    resources :posts do
+      resources :comments
+    end
+  end
+
   resources :repos do
     resources :items
   end

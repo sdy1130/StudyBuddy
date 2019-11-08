@@ -12,3 +12,30 @@
     <strong>Category:</strong>
     <%= @post.category %>
 </p>
+
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <p>
+    <strong>User:</strong>
+    <%= comment.user_id %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.description %>
+  </p>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @course, @post, @post.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit', edit_course_post_path(@course, @post) %> |
+<%= link_to 'Back', course_path(@course) %>
