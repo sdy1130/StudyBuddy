@@ -1,9 +1,11 @@
-<%= form_with(model: [ @course, @course.posts.build ], local: true) do |form| %>
+<h1>Edit Post</h1>
+ 
+<%= form_with(model: [ @course, @post ], local: true) do |form| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@post.errors.count, "error") %> prohibited
-        this article from being saved:
+        this post from being saved:
       </h2>
       <ul>
         <% @post.errors.full_messages.each do |msg| %>
@@ -12,7 +14,7 @@
       </ul>
     </div>
   <% end %>
-
+ 
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -26,9 +28,12 @@
   <p>
     <%= form.label :category %><br>
     <%= form.select :category, ['Tutoring', 'Studymate', 'Question']%>
-  </p>
+    </p>
  
   <p>
     <%= form.submit %>
   </p>
+ 
 <% end %>
+ 
+<%= link_to 'Back', course_path(@course) %>

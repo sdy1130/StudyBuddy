@@ -1,0 +1,13 @@
+<h1>All courses</h1>
+ 
+<table>
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.name %></td>
+      <td><%= course.description %></td>
+      <td><%= link_to 'Show', course_path(course) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<td><%= link_to 'Back', root_path %></td>

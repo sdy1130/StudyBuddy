@@ -4,5 +4,6 @@ class AddRelations < ActiveRecord::Migration[6.0]
     add_reference :comments, :post, index: true
     add_reference :posts, :user, index: true
     add_reference :posts, :course, index: true
+    add_reference :items, :repo, index: true
   end
 end
