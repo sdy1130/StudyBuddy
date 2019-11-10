@@ -25,7 +25,7 @@
     <%= comment.description %>
   </p>
 <% end %>
- 
+<% if current_user %>
 <h2>Add a comment:</h2>
 <%= form_with(model: [ @course, @post, @post.comments.build ], local: true) do |form| %>
   <p>
@@ -36,6 +36,12 @@
     <%= form.submit %>
   </p>
 <% end %>
- 
+<% else %>
+<p>
+Please Log in to comment.
+</p>
+<% end %>
+<% if current_user && current_user.id == @post.user_id %>
 <%= link_to 'Edit', edit_course_post_path(@course, @post) %> |
+<% end %>
 <%= link_to 'Back', course_path(@course) %>

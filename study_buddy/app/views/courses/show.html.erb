@@ -15,14 +15,21 @@
       <td><%= post.title %></td>
       <td><%= post.user_id %></td>
       <td><%= link_to 'Show', course_post_path(post.course, post) %></td>
-      <td><%= link_to 'Edit', edit_course_post_path(post.course, post) %></td>
-      <td><%= link_to 'Destroy', course_post_path(post.course, post),
+      <% if current_user && current_user.id == post.user_id %>
+        <td><%= link_to 'Edit', edit_course_post_path(post.course, post) %></td>
+        <td><%= link_to 'Destroy', course_post_path(post.course, post),
         method: :delete,
         data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   <% end %>
-
+  <% if current_user %>
   <td><%= link_to 'Create Post', new_course_post_path(@course) %></td>
+  <% else %>
+  <p>
+  Please login to create a post.
+  </p>
+  <% end %>
   <td><%= link_to 'Back', courses_path %></td>
 
 </table>

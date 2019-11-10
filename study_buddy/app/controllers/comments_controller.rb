@@ -4,10 +4,7 @@ class CommentsController < ApplicationController
         @post = Post.find(params[:post_id])
 
         comment_params_2 = comment_params
-        # HACK HACK HACK
-        # HACK HACK HACK
-        # HACK HACK HACK
-        comment_params_2[:user_id] = 1
+        comment_params_2[:user_id] = current_user.id
 
         @comment = @post.comments.create(comment_params_2)
         redirect_to course_post_path(@course, @post)
