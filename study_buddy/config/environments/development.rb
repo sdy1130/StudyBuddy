@@ -60,5 +60,31 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # To set up email stuff for user sign up, I based it on this:
+  #https://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.smtp_settings = {
+  #   user_name:     'ece444studybuddy@gmail.com',
+  #   password:      'ECE444StudyBuddy10',
+  #   domain:        'localhost:3000',
+  #   address:       'smtp.gmail.com',
+  #   port:          '587',
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
+
+  #put this in bashrc?
+  # export SENDMAIL_PASSWORD=password
+  # export SENDMAIL_USERNAME=KHongSanFrancisco@gmail.com
+  # export MAIL_HOST=localhost:3000
 end
