@@ -15,3 +15,13 @@ Rerunning all migration files
 rake db:drop db:create db:migrate
 ```
 
+# User signup (email confirmation steps):
+Based on this: https://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise
+
+For development:
+   1. run: "gem install mailcatcher"
+   2. On a terminal do: "mailcatcher"
+   3. Go to http://localhost:1080/ to see the email sent 
+
+For production:
+Not done yet
