@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'users/profile'
   root to: 'pages#home'
   get 'pages/about'
+  get 'pages/contact'
   devise_for :users
   
   resources :courses do
