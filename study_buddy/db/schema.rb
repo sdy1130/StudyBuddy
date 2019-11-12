@@ -42,8 +42,6 @@ ActiveRecord::Schema.define(version: 2019_11_07_000652) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "repo_id"
-    t.index ["repo_id"], name: "index_items_on_repo_id"
   end
 
   create_table "posts", force: :cascade do |t|
