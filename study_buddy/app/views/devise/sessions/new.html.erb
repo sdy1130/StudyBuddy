@@ -1,29 +1,48 @@
-<h2>Log in</h2>
+<div class = "signin">
+<div class = "container">
+<div class = "content">
+<div class = "signin_image">
+  <figure><%= image_tag ("signin-image.jpg") %></figure>
+</div>
 
+<div class = "signin_form">
+<h2 class = "title">Sign in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+        :placeholder => "Email",
+        :class => "signin_input_field"
+    %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", 
+        :placeholder => "Password",
+        :class => "signin_input_field"
+    %>
+  </div>
+
+  <div>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name), :class => "signin_label signin_forget_password" %><br />
+    <% end %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="signin_remember_field">
+      <%= f.check_box :remember_me, :class => "signin_checkbox" %>
+      <%= f.label :remember_me, :class => "signin_label"%>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Sign in", :class => "signin_button" %>
   </div>
 
 <% end %>
 
-<%= render "devise/shared/links" %>
-<p><%= link_to 'Home', root_path%></p>
+</div>
+</div>
+</div>
+</div>
 
