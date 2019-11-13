@@ -1,11 +1,24 @@
 <h1>Users Profile</h1>
 <p>This is the user profile:</p>
 
-<% if current_user.name %>
-    <p><%= current_user.name%></p>
+<% if current_user.user_name %>
+    <p><%= current_user.user_name%></p>
 <% else %>
     <p> name is null </p>
 <% end %>
+
+<% if current_user.first_name %>
+    <p><%= current_user.first_name%></p>
+<% end %>
+
+<% if current_user.last_name %>
+    <p><%= current_user.last_name%></p>
+<% end %>
+
+<% if current_user.age %>
+    <p><%= current_user.age%></p>
+<% end %>
+
 <p><%= current_user.email%></p>
 
 <p><%= link_to 'Edit User', edit_user_registration_path%></p>
