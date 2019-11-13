@@ -22,3 +22,48 @@
     -o-background-size: cover;
     background-size: cover;
   }
+
+.center_align_horizontal{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.text_algin_center{
+  text-align: center;
+}
+
+.logo_signup_size{
+  display: block;
+  margin: 0 auto;
+  text-indent: -9999px;
+  width: 100px;
+  height: 100px;
+}
+
+.signup_background{
+  background-color: #f7f7f7;
+}
+
+.signup_left{
+  width: 49%;
+  // display:inline-block;
+}
+
+.signup_right{
+  display: inline-block;
+  width: 50%;
+  min-height: 100vh;
+  // padding: 173px 55px 55px 55px;
+}
+
+.signup_image{
+  align: left;
+  width: inherit;
+  height: 100%;
+}
+
+.signup_box{
+  padding: 0px 55px 55px 55px;
+}
+
