@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'pages/about'
   get 'pages/contact'
+  get '/search' => 'courses#search', :as => 'search_page'
   devise_for :users
   
   resources :courses do
