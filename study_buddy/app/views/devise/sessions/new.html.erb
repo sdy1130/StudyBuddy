@@ -8,14 +8,14 @@
 <div class = "signin_form">
 <h2 class = "title">Sign in</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", 
         :placeholder => "Email",
         :class => "signin_input_field"
     %>
   </div>
 
-  <div class="field">
+  <div>
     <%= f.password_field :password, autocomplete: "current-password", 
         :placeholder => "Password",
         :class => "signin_input_field"
@@ -34,6 +34,12 @@
       <%= f.label :remember_me, :class => "signin_label"%>
     </div>
   <% end %>
+
+  <div class = "signin_error_messages">
+    <% if alert %>
+      <%= alert %>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Sign in", :class => "signin_button" %>

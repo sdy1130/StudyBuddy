@@ -10,7 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ * Do not remove the 2 following lines. They are not comments and required to add the style of the scss files in this folder.
+ *= require_tree .
+ *= require_self
  */
+
 @import "bootstrap";
 
 .carousel-item {
@@ -21,10 +25,6 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-@mixin application_font{
-  // font-family: Poppins;
 }
 
 .center_align_horizontal{
@@ -45,163 +45,6 @@
   height: 100px;
 }
 
-.signup_background{
+.application_background_color{
   background-color: #f7f7f7;
 }
-
-.signup_left{
-  width: 49%;
-  // display:inline-block;
-}
-
-.signup_right{
-  display: inline-block;
-  width: 50%;
-  min-height: 100vh;
-  // padding: 173px 55px 55px 55px;
-}
-
-.signup_image{
-  align: left;
-  width: inherit;
-  height: 100%;
-  margin-left: 110px;
-  margin-right: 20px;
-  margin-top: 10px;
-  width: 50%;
-}
-
-.signup_box{
-  padding: 0px 55px 55px 55px;
-}
-
-.signin{
-  margin-top: 16px;
-  background: #f8f8f8;
-  padding: 150px 0;
-}
-
-.signin .title {
-  margin-bottom: 33px; 
-  line-height: 1.66;
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-  color: #222;
-  
-  font-size: 36px;
-}
-
-.signin .container{
-  padding: 75px 0;
-  width: 900px;
-  background: #fff;
-  margin: 0 auto;
-  box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-  -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-  -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-  border-radius: 20px;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -o-border-radius: 20px;
-  -ms-border-radius: 20px; 
-}
-
-.signin .content{
-  padding-top: 67px;
-  padding-bottom: 87px;
-  display: flex;
-  display: -webkit-flex;
-}
-
-.signin .signin_image{
-  width: 50%;
-  overflow: hidden;
-  margin-left: 110px;
-  margin-right: 20px;
-  margin-top: 10px;
-}
-
-.signin .signin_form{
-  margin-right: 90px;
-  margin-left: 80px;
-  width: 50%;
-  overflow: hidden;
-}
-
-.signin .signin_field{
-    width: 100%;
-    display: block;
-    border: none;
-    border-bottom: 1px solid #999;
-    padding: 6px 30px;
-    box-sizing: border-box; 
-    @include application_font;
-}
-
-.signin input[type=checkbox] {
-  border: 1px solid #999;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -o-border-radius: 2px;
-  -ms-border-radius: 2px;
-  background-color: #eee;
-}
-
-.signin .signin_input_field{
-  width: 100%;
-  display: block;
-  border: none;
-  border-bottom: 1px solid #999;
-  padding: 6px 0px;
-  @include application_font;
-  box-sizing: border-box;
-  outline: none;
-  margin-top: 10px;
-}
-
-.signin .signin_remember_field{
-  margin-top: 20px;
-  color: #222;
-}
-
-.signin .signin_label{
-  @include application_font;
-}
-
-.signin .signin_forget_password{
-  align: right;
-  color: #6dabe4;
-}
-
-.signin .signin_forget_password:hover{
-  color: #4292dc; 
-}
-
-.signin .signin_button{
-  background: #6dabe4;
-  color: #fff;
-  border-bottom: none;
-  width: auto;
-  padding: 8px 35px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  margin-top: 15px;
-  cursor: pointer; 
-}
-
-.signin .signin_button:hover {
-  background: #4292dc; 
-}
-
-.signin .signin_field:focus {
-  border-bottom: 1px solid #222; 
-}
-
-
