@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_11_12_175137) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "Repos_Users", id: false, force: :cascade do |t|
     t.integer "Repo_id", null: false
     t.integer "User_id", null: false
