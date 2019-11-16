@@ -1,22 +1,15 @@
 <h1>Home page</h1>
-<p>This is a temporary test home page</p>
 
-<% if current_user %>
-    <p><%= link_to 'Sign out', destroy_user_session_path,
-    method: :delete%></p>
-    <p><%= link_to 'Profile', users_profile_path%>
-<% else %>
-    <p><%= link_to 'Sign up', new_user_registration_path%></p>
-    <p><%= link_to 'Sign in', new_user_session_path%></p>
+<!-- Course Search Bar -->
+<div class = "logo">
+    <figure><%= image_tag ("logo.png") %></figure>
+</div>
+<div class="search_bar">
+<%= form_tag(search_page_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search])%>
+  <%=submit_tag('Search') %>
 <% end %>
-<p><%= link_to 'Courses', courses_path%></p>
-<p><%= link_to 'About', pages_about_path%></p>
-<p><%= link_to 'Repos', repos_path%></p>
+</div>
 
 <%= render 'layouts/devise_alerts' %>
 
-<!-- Course Search Bar -->
-<%= form_tag(search_page_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search])%>
-  <%=submit_tag("Search") %>
-<% end %>
