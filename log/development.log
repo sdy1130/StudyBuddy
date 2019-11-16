@@ -14631,3 +14631,98 @@ Module not found: Error: Can't resolve 'popper' in '/Users/seung/GitHub/ECE444-S
 Completed 200 OK in 6005ms (Views: 5986.0ms | ActiveRecord: 0.0ms | Allocations: 1466331)
 
 
+Started GET "/" for ::1 at 2019-11-16 04:00:07 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 1.5ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1105.7ms | Allocations: 1441372)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: fe59d96837e91b620b9d
+Version: webpack 4.41.2
+Time: 3870ms
+Built at: 11/16/2019 4:00:15 AM
+                                         Asset       Size           Chunks                         Chunk Names
+        js/application-fb36bc78957b18d24964.js   1.28 MiB      application  [emitted] [immutable]  application
+    js/application-fb36bc78957b18d24964.js.map   1.41 MiB      application  [emitted] [dev]        application
+    js/src/application-b8fe2ff7fbb77d0dfac1.js    666 KiB  src/application  [emitted] [immutable]  src/application
+js/src/application-b8fe2ff7fbb77d0dfac1.js.map    689 KiB  src/application  [emitted] [dev]        src/application
+                                 manifest.json  731 bytes                   [emitted]              
+Entrypoint application = js/application-fb36bc78957b18d24964.js js/application-fb36bc78957b18d24964.js.map
+Entrypoint src/application = js/src/application-b8fe2ff7fbb77d0dfac1.js js/src/application-b8fe2ff7fbb77d0dfac1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 877 bytes {application} [built]
+[./app/javascript/packs/src/application.scss] 560 bytes {src/application} {application} [built]
+[./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./app/javascript/packs/src/application.scss] ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./app/javascript/packs/src/application.scss 650 KiB {application} {src/application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 8 hidden modules
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'bootstrap-sprockets' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 15:0-30
+
+
+
+WARNING: We noticed you're using the `useBuiltIns` option without declaring a core-js version. Currently, we assume version 2.x when no version is passed. Since this default version will likely change in future versions of Babel, we recommend explicitly setting the core-js version you are using via the `corejs` option.
+
+You should also be sure that the version you pass to the `corejs` option matches the version specified in your `package.json`'s `dependencies` section. If it doesn't, you need to run one of the following commands:
+
+  npm install --save core-js@2    npm install --save core-js@3
+  yarn add core-js@2              yarn add core-js@3
+
+
+Completed 200 OK in 7479ms (Views: 7461.5ms | ActiveRecord: 0.0ms | Allocations: 1466313)
+
+
+Started GET "/" for ::1 at 2019-11-16 04:00:27 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.1ms | Allocations: 907)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/seung/GitHub/ECE444-Study-Buddy-Group-10/public/packs
+[Webpacker] 
+WARNING: We noticed you're using the `useBuiltIns` option without declaring a core-js version. Currently, we assume version 2.x when no version is passed. Since this default version will likely change in future versions of Babel, we recommend explicitly setting the core-js version you are using via the `corejs` option.
+
+You should also be sure that the version you pass to the `corejs` option matches the version specified in your `package.json`'s `dependencies` section. If it doesn't, you need to run one of the following commands:
+
+  npm install --save core-js@2    npm install --save core-js@3
+  yarn add core-js@2              yarn add core-js@3
+
+
+[Webpacker] Hash: 308b7aa08036782372c0
+Version: webpack 4.41.2
+Time: 2099ms
+Built at: 11/16/2019 4:00:30 AM
+                                         Asset       Size           Chunks                         Chunk Names
+        js/application-807b9718b25e892baadd.js   1.28 MiB      application  [emitted] [immutable]  application
+    js/application-807b9718b25e892baadd.js.map   1.41 MiB      application  [emitted] [dev]        application
+    js/src/application-b8fe2ff7fbb77d0dfac1.js    666 KiB  src/application  [emitted] [immutable]  src/application
+js/src/application-b8fe2ff7fbb77d0dfac1.js.map    689 KiB  src/application  [emitted] [dev]        src/application
+                                 manifest.json  731 bytes                   [emitted]              
+Entrypoint application = js/application-807b9718b25e892baadd.js js/application-807b9718b25e892baadd.js.map
+Entrypoint src/application = js/src/application-b8fe2ff7fbb77d0dfac1.js js/src/application-b8fe2ff7fbb77d0dfac1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 844 bytes {application} [built]
+[./app/javascript/packs/src/application.scss] 560 bytes {src/application} {application} [built]
+[./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./app/javascript/packs/src/application.scss] ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./app/javascript/packs/src/application.scss 650 KiB {application} {src/application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 8 hidden modules
+
+Completed 200 OK in 3265ms (Views: 3264.4ms | ActiveRecord: 0.0ms | Allocations: 21395)
+
+
+Started GET "/" for ::1 at 2019-11-16 04:00:43 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.9ms | Allocations: 903)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 26.4ms | ActiveRecord: 0.0ms | Allocations: 20238)
+
+
