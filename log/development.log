@@ -14541,3 +14541,93 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 71ms (Views: 53.1ms | ActiveRecord: 3.7ms | Allocations: 34770)
 
 
+Started GET "/" for ::1 at 2019-11-16 03:44:10 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 1.3ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1367.5ms | Allocations: 1415684)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 407b960f42708c95335d
+Version: webpack 4.41.2
+Time: 4026ms
+Built at: 11/16/2019 3:44:18 AM
+                                         Asset       Size           Chunks                         Chunk Names
+        js/application-95d201f9439458ed81a8.js   1.28 MiB      application  [emitted] [immutable]  application
+    js/application-95d201f9439458ed81a8.js.map   1.41 MiB      application  [emitted] [dev]        application
+    js/src/application-b8fe2ff7fbb77d0dfac1.js    666 KiB  src/application  [emitted] [immutable]  src/application
+js/src/application-b8fe2ff7fbb77d0dfac1.js.map    689 KiB  src/application  [emitted] [dev]        src/application
+                                 manifest.json  731 bytes                   [emitted]              
+Entrypoint application = js/application-95d201f9439458ed81a8.js js/application-95d201f9439458ed81a8.js.map
+Entrypoint src/application = js/src/application-b8fe2ff7fbb77d0dfac1.js js/src/application-b8fe2ff7fbb77d0dfac1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 876 bytes {application} [built]
+[./app/javascript/packs/src/application.scss] 560 bytes {src/application} {application} [built]
+[./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./app/javascript/packs/src/application.scss] ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./app/javascript/packs/src/application.scss 650 KiB {application} {src/application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 8 hidden modules
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'bootstrap-sprockets' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 17:0-30
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'popper' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 15:0-17
+
+
+
+WARNING: We noticed you're using the `useBuiltIns` option without declaring a core-js version. Currently, we assume version 2.x when no version is passed. Since this default version will likely change in future versions of Babel, we recommend explicitly setting the core-js version you are using via the `corejs` option.
+
+You should also be sure that the version you pass to the `corejs` option matches the version specified in your `package.json`'s `dependencies` section. If it doesn't, you need to run one of the following commands:
+
+  npm install --save core-js@2    npm install --save core-js@3
+  yarn add core-js@2              yarn add core-js@3
+
+
+Completed 200 OK in 8350ms (Views: 8331.8ms | ActiveRecord: 0.0ms | Allocations: 1440661)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:46:03 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 2.8ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1405.6ms | Allocations: 1441372)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 407b960f42708c95335d
+Version: webpack 4.41.2
+Time: 2913ms
+Built at: 11/16/2019 3:46:09 AM
+                                         Asset       Size           Chunks                         Chunk Names
+        js/application-95d201f9439458ed81a8.js   1.28 MiB      application  [emitted] [immutable]  application
+    js/application-95d201f9439458ed81a8.js.map   1.41 MiB      application  [emitted] [dev]        application
+    js/src/application-b8fe2ff7fbb77d0dfac1.js    666 KiB  src/application  [emitted] [immutable]  src/application
+js/src/application-b8fe2ff7fbb77d0dfac1.js.map    689 KiB  src/application  [emitted] [dev]        src/application
+                                 manifest.json  731 bytes                   [emitted]              
+Entrypoint application = js/application-95d201f9439458ed81a8.js js/application-95d201f9439458ed81a8.js.map
+Entrypoint src/application = js/src/application-b8fe2ff7fbb77d0dfac1.js js/src/application-b8fe2ff7fbb77d0dfac1.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 876 bytes {application} [built]
+[./app/javascript/packs/src/application.scss] 560 bytes {src/application} {application} [built]
+[./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./app/javascript/packs/src/application.scss] ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./app/javascript/packs/src/application.scss 650 KiB {application} {src/application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 8 hidden modules
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'bootstrap-sprockets' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 17:0-30
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'popper' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 15:0-17
+
+Completed 200 OK in 6005ms (Views: 5986.0ms | ActiveRecord: 0.0ms | Allocations: 1466331)
+
+

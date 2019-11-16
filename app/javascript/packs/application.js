@@ -6,12 +6,11 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("jquery")
-require("popper")
+require("bootstrap/dist/js/bootstrap")
 require("bootstrap-sprockets")
 
-import "bootstrap"
-
+import 'bootstrap'
+import './src/application.scss'
 
 
 
