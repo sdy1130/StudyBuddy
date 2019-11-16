@@ -15,19 +15,12 @@ ActiveRecord::Schema.define(version: 2019_11_12_175137) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Repos_Users", id: false, force: :cascade do |t|
-    t.integer "Repo_id", null: false
-    t.integer "User_id", null: false
-    t.index ["Repo_id", "User_id"], name: "index_Repos_Users_on_repo_id_and_user_id"
-    t.index ["User_id", "Repo_id"], name: "index_Repos_Users_on_user_id_and_repo_id"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "post_id"
+    t.bigint "user_id"
+    t.bigint "post_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -45,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_175137) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "repo_id"
+    t.bigint "repo_id"
     t.index ["repo_id"], name: "index_items_on_repo_id"
   end
 
@@ -55,8 +48,8 @@ ActiveRecord::Schema.define(version: 2019_11_12_175137) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "course_id"
+    t.bigint "user_id"
+    t.bigint "course_id"
     t.index ["course_id"], name: "index_posts_on_course_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -67,6 +60,13 @@ ActiveRecord::Schema.define(version: 2019_11_12_175137) do
     t.boolean "public"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "repos_users", id: false, force: :cascade do |t|
+    t.bigint "repo_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["repo_id", "user_id"], name: "index_repos_users_on_repo_id_and_user_id"
+    t.index ["user_id", "repo_id"], name: "index_repos_users_on_user_id_and_repo_id"
   end
 
   create_table "users", force: :cascade do |t|
