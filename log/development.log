@@ -14361,3 +14361,183 @@ Processing by PagesController#about as HTML
 Completed 200 OK in 68ms (Views: 66.4ms | ActiveRecord: 0.0ms | Allocations: 19671)
 
 
+Started GET "/" for ::1 at 2019-11-16 03:23:58 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 1.0ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1347.0ms | Allocations: 1413210)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: cd07e0c957c2e24fdc35
+Version: webpack 4.41.2
+Time: 2647ms
+Built at: 11/16/2019 3:24:05 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-3435769b831ecdf9bcad.js   1.27 MiB  application  [emitted] [immutable]  application
+js/application-3435769b831ecdf9bcad.js.map   1.18 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-3435769b831ecdf9bcad.js js/application-3435769b831ecdf9bcad.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 10.2 KiB {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 365 hidden modules
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'bootstrap-sprockets' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 227:0-30
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'popper' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 225:0-17
+
+Completed 200 OK in 7314ms (Views: 7292.8ms | ActiveRecord: 0.0ms | Allocations: 1438010)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:26:57 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 2.5ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 4807.4ms | Allocations: 1463254)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 4fb650bdf40190c8aaa7
+Version: webpack 4.41.2
+Time: 4182ms
+Built at: 11/16/2019 3:27:08 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-bd7eb8f1e06e9020ef48.js   1.22 MiB  application  [emitted] [immutable]  application
+js/application-bd7eb8f1e06e9020ef48.js.map    1.2 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-bd7eb8f1e06e9020ef48.js js/application-bd7eb8f1e06e9020ef48.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 907 bytes {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 372 hidden modules
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'bootstrap-sprockets' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 20:0-30
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'popper' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 18:0-17
+
+
+
+WARNING: We noticed you're using the `useBuiltIns` option without declaring a core-js version. Currently, we assume version 2.x when no version is passed. Since this default version will likely change in future versions of Babel, we recommend explicitly setting the core-js version you are using via the `corejs` option.
+
+You should also be sure that the version you pass to the `corejs` option matches the version specified in your `package.json`'s `dependencies` section. If it doesn't, you need to run one of the following commands:
+
+  npm install --save core-js@2    npm install --save core-js@3
+  yarn add core-js@2              yarn add core-js@3
+
+
+Completed 200 OK in 10658ms (Views: 10641.9ms | ActiveRecord: 0.0ms | Allocations: 1489137)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:27:13 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.4ms | Allocations: 875)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 69.3ms | ActiveRecord: 0.0ms | Allocations: 19708)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:31:09 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 2.0ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 4968.9ms | Allocations: 1470723)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: d7ecd91e1954e4f64e16
+Version: webpack 4.41.2
+Time: 1139ms
+Built at: 11/16/2019 3:31:17 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-af17cabab8a686845465.js    645 KiB  application  [emitted] [immutable]  application
+js/application-af17cabab8a686845465.js.map    756 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-af17cabab8a686845465.js js/application-af17cabab8a686845465.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 843 bytes {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'bootstrap-sprockets' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 17:0-30
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'popper' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 15:0-17
+
+
+
+WARNING: We noticed you're using the `useBuiltIns` option without declaring a core-js version. Currently, we assume version 2.x when no version is passed. Since this default version will likely change in future versions of Babel, we recommend explicitly setting the core-js version you are using via the `corejs` option.
+
+You should also be sure that the version you pass to the `corejs` option matches the version specified in your `package.json`'s `dependencies` section. If it doesn't, you need to run one of the following commands:
+
+  npm install --save core-js@2    npm install --save core-js@3
+  yarn add core-js@2              yarn add core-js@3
+
+
+Completed 200 OK in 7834ms (Views: 7815.2ms | ActiveRecord: 0.0ms | Allocations: 1497073)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:34:33 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.8ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1161.0ms | Allocations: 1415687)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1229ms (Views: 1216.3ms | ActiveRecord: 0.0ms | Allocations: 1439526)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:34:55 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.4ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1160.8ms | Allocations: 1415687)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1209ms (Views: 1198.0ms | ActiveRecord: 0.0ms | Allocations: 1439552)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:35:00 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.3ms | Allocations: 24)
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.1ms | Allocations: 907)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 50.9ms | ActiveRecord: 0.0ms | Allocations: 20229)
+
+
+Started GET "/pages/contact" for ::1 at 2019-11-16 03:35:01 -0500
+Processing by PagesController#contact as HTML
+  Rendering pages/contact.html.erb within layouts/application
+  Rendered pages/contact.html.erb within layouts/application (Duration: 1.0ms | Allocations: 81)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 37.0ms | ActiveRecord: 0.0ms | Allocations: 19728)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-11-16 03:35:02 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.2ms | Allocations: 3069)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 71ms (Views: 53.1ms | ActiveRecord: 3.7ms | Allocations: 34770)
+
+
