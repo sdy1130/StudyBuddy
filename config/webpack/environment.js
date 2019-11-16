@@ -14,11 +14,7 @@ environment.plugins.prepend(
     $: 'jquery',
     jQuery: 'jquery',
     jquery: 'jquery',
-    'window.Tether': 'tether',
     Popper: ['popper.js', 'default'],
-    ActionCable: 'actioncable',
-    Vue: 'vue',
-    VueResource: 'vue-resource',
   })
 )
 
