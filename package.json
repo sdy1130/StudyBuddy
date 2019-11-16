@@ -10,6 +10,7 @@
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "core-js": "3",
     "jquery": "^3.4.1",
+    "pg-info": "0.0.16",
     "popper.js": "^1.16.0",
     "turbolinks": "^5.2.0",
     "webpack-dev-server": "^3.9.0"
