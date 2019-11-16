@@ -6,7 +6,7 @@
 </div>
 <div class="search_bar">
 <%= form_tag(search_page_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search])%>
+  <%= text_field_tag(:search, params[:search], placeholder: 'Enter Course Name')%>
   <%=submit_tag('Search') %>
 <% end %>
 </div>
