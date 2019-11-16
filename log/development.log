@@ -14181,3 +14181,183 @@ Processing by PagesController#about as HTML
 Completed 200 OK in 45ms (Views: 40.9ms | ActiveRecord: 0.0ms | Allocations: 19694)
 
 
+Started GET "/" for ::1 at 2019-11-16 03:00:00 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 2.4ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1144.5ms | Allocations: 1413206)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1230ms (Views: 1211.1ms | ActiveRecord: 0.0ms | Allocations: 1436919)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:00:01 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 875)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.0ms | Allocations: 20067)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:12:41 -0500
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 1.3ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1142.9ms | Allocations: 1413210)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack-cli/bin/cli.js:93
+				throw err;
+				^
+
+Error: webpack.optimize.CommonsChunkPlugin has been removed, please use config.optimization.splitChunks instead.
+    at Object.get [as CommonsChunkPlugin] (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack/lib/webpack.js:189:10)
+    at Object.<anonymous> (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/config/webpack/environment.js:27:24)
+    at Module._compile (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:973:10)
+    at Module.load (internal/modules/cjs/loader.js:812:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:724:14)
+    at Module.require (internal/modules/cjs/loader.js:849:19)
+    at require (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at Object.<anonymous> (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/config/webpack/development.js:3:21)
+    at Module._compile (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/v8-compile-cache/v8-compile-cache.js:192:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:973:10)
+    at Module.load (internal/modules/cjs/loader.js:812:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:724:14)
+    at Module.require (internal/modules/cjs/loader.js:849:19)
+    at require (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)
+    at WEBPACK_OPTIONS (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack-cli/bin/utils/convert-argv.js:114:13)
+    at requireConfig (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack-cli/bin/utils/convert-argv.js:116:6)
+    at /Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack-cli/bin/utils/convert-argv.js:123:17
+    at Array.forEach (<anonymous>)
+    at module.exports (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack-cli/bin/utils/convert-argv.js:121:15)
+    at /Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack-cli/bin/cli.js:71:45
+    at Object.parse (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack-cli/node_modules/yargs/yargs.js:567:18)
+    at /Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack-cli/bin/cli.js:49:8
+    at Object.<anonymous> (/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/node_modules/webpack-cli/bin/cli.js:366:3)
+    at Module._compile (internal/modules/cjs/loader.js:956:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:973:10)
+    at Module.load (internal/modules/cjs/loader.js:812:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:724:14)
+    at Module.require (internal/modules/cjs/loader.js:849:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+
+Completed 200 OK in 3252ms (Views: 3238.7ms | ActiveRecord: 0.0ms | Allocations: 1438014)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:13:13 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 875)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.0ms | Allocations: 20073)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:14:23 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 2.3ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 1246.0ms | Allocations: 1413209)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: cd07e0c957c2e24fdc35
+Version: webpack 4.41.2
+Time: 2435ms
+Built at: 11/16/2019 3:14:29 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-3435769b831ecdf9bcad.js   1.27 MiB  application  [emitted] [immutable]  application
+js/application-3435769b831ecdf9bcad.js.map   1.18 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-3435769b831ecdf9bcad.js js/application-3435769b831ecdf9bcad.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 10.2 KiB {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 365 hidden modules
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'bootstrap-sprockets' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 227:0-30
+
+ERROR in ./app/javascript/packs/application.js
+Module not found: Error: Can't resolve 'popper' in '/Users/seung/GitHub/ECE444-Study-Buddy-Group-10/app/javascript/packs'
+ @ ./app/javascript/packs/application.js 225:0-17
+
+Completed 200 OK in 5566ms (Views: 5552.2ms | ActiveRecord: 0.0ms | Allocations: 1438012)
+
+
+Started GET "/pages/about" for ::1 at 2019-11-16 03:16:12 -0500
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 2.6ms | Allocations: 218)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 54.0ms | ActiveRecord: 0.0ms | Allocations: 19672)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:16:16 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.3ms | Allocations: 24)
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.1ms | Allocations: 874)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 47.1ms | ActiveRecord: 0.0ms | Allocations: 20072)
+
+
+Started GET "/pages/contact" for ::1 at 2019-11-16 03:16:19 -0500
+Processing by PagesController#contact as HTML
+  Rendering pages/contact.html.erb within layouts/application
+  Rendered pages/contact.html.erb within layouts/application (Duration: 0.8ms | Allocations: 81)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 36.2ms | ActiveRecord: 0.0ms | Allocations: 19556)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-11-16 03:16:20 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 2513)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 106ms (Views: 66.5ms | ActiveRecord: 10.0ms | Allocations: 33791)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:16:22 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.3ms | Allocations: 24)
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.7ms | Allocations: 876)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 65.0ms | ActiveRecord: 0.0ms | Allocations: 20073)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:16:36 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 2.1ms | Allocations: 141)
+  Rendered pages/home.html.erb within layouts/application (Duration: 982.1ms | Allocations: 1413206)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1040ms (Views: 1030.1ms | ActiveRecord: 0.0ms | Allocations: 1436913)
+
+
+Started GET "/" for ::1 at 2019-11-16 03:16:40 -0500
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered layouts/_devise_alerts.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.9ms | Allocations: 875)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 47.5ms | ActiveRecord: 0.0ms | Allocations: 20065)
+
+
+Started GET "/pages/about" for ::1 at 2019-11-16 03:16:41 -0500
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 5.9ms | Allocations: 218)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 66.4ms | ActiveRecord: 0.0ms | Allocations: 19671)
+
+
