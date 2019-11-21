@@ -1,6 +1,15 @@
 <h1>All courses</h1>
- 
-<table>
+
+
+<div id="search_bar_course">
+<%= form_tag(search_page_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search], placeholder: 'Enter Course Name', id: 'input_course')%>
+  <%=submit_tag('Search', id: 'submit_course') %>
+<% end %>
+</div>
+
+<div>
+<table id="courses">
   <% @courses.each do |course| %>
     <tr>
       <td><%= course.name %></td>
@@ -9,10 +18,4 @@
     </tr>
   <% end %>
 </table>
-
-<!-- Course Search Bar -->
-<%= form_tag(search_page_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search])%>
-  <%=submit_tag("Search") %>
-<% end %>
-<td><%= link_to 'Back', root_path %></td>
+</div>
