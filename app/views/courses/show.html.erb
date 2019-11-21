@@ -10,14 +10,14 @@
   
   <div class = "course_post_container">
   <div class = "course_post">
-  <% if current_user %>
+  
     <div class = "post_header">
         <div><h4 class = "course_title">Create Post</h4></div>
     </div>
     <div class = "line_break"> </div>
     <%= link_to 'Create Post', new_course_post_path(@course) %></td>
 
-  <% end %>
+  
   </div>
   <% @course.posts.each do |post| %>
   <div class = "course_post">
@@ -44,6 +44,7 @@
   <div class = "course_repo">
   <h4 class = "course_title">Public Repos</h4>
   <div class = "line_break"> </div>
+  <% if @course.posts.any?%>
   <% @course.posts.each do |post| %>
   <div>
       <div class = "post_header">
@@ -52,6 +53,9 @@
       </div>
       <div class = "line_break"> </div>
   </div>
+  <% end %>
+  <% else %>
+    No public repos
   <% end %>
   </div>
   </div>
