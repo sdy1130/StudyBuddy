@@ -1,35 +1,61 @@
-<h1><%= @course.name %></h1>
-<p><%= @course.description %></p>
+<div class = "course_header">
+<%= image_tag ("default-course-header.png"), :class => "default_header_image"%>
+<h2 class = "course_title"><%= @course.name %> <%= @course.description %></h2>
+<div class = "back_button_container"><%= button_to 'Back', courses_path, :method => "get", :class => "back_button" %></td></div>
+</div>
 
-<table>
-  <tr>
-    <th>Category | </th>
-    <th>Post Title | </th>
-    <th>By</th>
-    <th colspan="2"></th>
-  </tr>
- 
-  <% @course.posts.each do |post| %>
-    <tr>
-      <td><%= post.category %></td>
-      <td><%= post.title %></td>
-      <td><%= post.user_id %></td>
-      <td><%= link_to 'Show', course_post_path(post.course, post) %></td>
-      <% if current_user && current_user.id == post.user_id %>
-        <td><%= link_to 'Edit', edit_course_post_path(post.course, post) %></td>
-        <td><%= link_to 'Destroy', course_post_path(post.course, post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
-  <% end %>
+<div class = "course_page">
+<div class = "course_page_lower_container">
+<div class = "course_page_container">
+  
+  <div class = "course_post_container">
+  <div class = "course_post">
   <% if current_user %>
-  <td><%= link_to 'Create Post', new_course_post_path(@course) %></td>
-  <% else %>
-  <p>
-    Please login to create a post.
-  </p>
-  <% end %>
-  <td><%= link_to 'Back', courses_path %></td>
+    <div class = "post_header">
+        <div><h4 class = "course_title">Create Post</h4></div>
+    </div>
+    <div class = "line_break"> </div>
+    <%= link_to 'Create Post', new_course_post_path(@course) %></td>
 
-</table>
+  <% end %>
+  </div>
+  <% @course.posts.each do |post| %>
+  <div class = "course_post">
+  <div>
+      <div class = "post_header">
+        <div><h4 class = "course_title"><%= post.category %> - <%= post.title %></h4></div>
+        <div>Posted by user: <%= post.user_id %></div>
+      </div>
+      <div class = "line_break"> </div>
+      <%= link_to 'Show', course_post_path(post.course, post) %>
+      <% if current_user && current_user.id == post.user_id %>
+        <%= link_to 'Edit', edit_course_post_path(post.course, post) %>
+        <%= link_to 'Destroy', course_post_path(post.course, post),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>>
+      <% end %>
+  </div>
+  </div>
+  <% end %>
+  </div>
+</div>
+
+ <div class = "course_repos_container">
+  <div class = "course_repo">
+  <h4 class = "course_title">Public Repos</h4>
+  <div class = "line_break"> </div>
+  <% @course.posts.each do |post| %>
+  <div>
+      <div class = "post_header">
+        <div><h4 class = "course_title"><%= post.title %> repo</h4></div>
+        <div>Posted by user: <%= post.user_id %></div>
+      </div>
+      <div class = "line_break"> </div>
+  </div>
+  <% end %>
+  </div>
+  </div>
+
+</div>
+
+</div>
