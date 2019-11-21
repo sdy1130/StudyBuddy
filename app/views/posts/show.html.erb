@@ -1,38 +1,40 @@
-<div id = "post">
-  <div id = "post_body">
-    <div id = "post_name">
-    <p>
-        <strong><font size = 6em><%= @post.title %></font></strong>
-        
-    </p>
+<div id="post">
+  <div id="post_body">
+    <div id="post_name">
+      <p>
+        <strong>
+          <font size=6em><%= @post.title %></font>
+        </strong>
+
+      </p>
     </div>
     <p>
-        <strong>Description:</strong>
-        <%= @post.description %>
+      <strong>Description:</strong>
+      <%= @post.description %>
     </p>
 
     <p>
-        <strong>Category:</strong>
-        <%= @post.category %>
+      <strong>Category:</strong>
+      <%= @post.category %>
     </p>
 
 
     <% if current_user %>
     <%= form_with(model: [ @course, @post, @post.comments.build ], local: true) do |form| %>
-      <p>
-        Comment as: <%= current_user.user_name %><br>
-        <%= form.text_area :description %>
-      </p>
-      <p>
-        <%= form.submit %>
-      </p>
+    <p>
+      Comment as: <%= current_user.user_name %><br>
+      <%= form.text_area :description ,class:"form-control",height:"58px" %>
+    </p>
+    <p>
+      <%= form.submit :class=>'btn btn-primary mb-2' %>
+    </p>
     <% end %>
 
 
 
     <% else %>
     <p>
-    Please Log in to comment.
+      Please Log in to comment.
     </p>
     <% end %>
     <% if current_user && current_user.id == @post.user_id %>
@@ -43,33 +45,36 @@
     <% end %>
   </div>
 
+
   <div id="post_comment">
     <h2>Comments</h2>
 
-
     <% @post.comments.each do |comment| %>
-      <div class="box">
-      <article class="media">
-        <div class="media-content">
-          <div class="content">
-      <p>
-      <!--TODO: helpfull to change this to user_name-->
-        <strong>User:</strong>
-        <%= comment.user_id %>
-      </p>
-    
-      <p>
-        <strong>Comment:</strong>
-        <%= comment.description %>
-      </p>
+    <div class="comment">
+      <div class="comment_container">
+        <div class="comment_upper_container">
+
+          <p>
+            <!--TODO: helpfull to change this to user_name-->
+            <strong>User:</strong>
+            <%= comment.user_id %>
+          </p>
+
+          <p>
+            <strong>Comment:</strong>
+            <%= comment.description %>
+          </p>
+        </div>
       </div>
-      </div>
-    </article>
-  </div>
+    </div>
+
+
     <% end %>
 
-    
-  </div>
-  <%= link_to 'Back', course_path(@course) %>
-</div>
 
+
+
+  </div>
+
+
+  <%= link_to 'Back', course_path(@course) %>
