@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.search_bar {
+#search_bar_home {
   width: 60%;
   position: fixed;
   top: 50%;
@@ -10,7 +10,7 @@
   margin-top: -50px;
 }
 
-input[type=text], select {
+#input_home{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -20,7 +20,7 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-input[type=submit] {
+#submit_home {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;

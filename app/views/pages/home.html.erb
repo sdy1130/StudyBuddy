@@ -4,10 +4,10 @@
 <div class = "logo">
     <figure><%= image_tag ("logo.png") %></figure>
 </div>
-<div class="search_bar">
+<div id="search_bar_home">
 <%= form_tag(search_page_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search], placeholder: 'Enter Course Name')%>
-  <%=submit_tag('Search') %>
+  <%= text_field_tag(:search, params[:search], placeholder: 'Enter Course Name', id: 'input_home')%>
+  <%=submit_tag('Search',id: 'submit_home') %>
 <% end %>
 </div>
 

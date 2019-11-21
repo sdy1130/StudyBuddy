@@ -1,50 +1,75 @@
-<p>
-    <strong>Title:</strong>
-    <%= @post.title %>
-</p>
+<div id = "post">
+  <div id = "post_body">
+    <div id = "post_name">
+    <p>
+        <strong><font size = 6em><%= @post.title %></font></strong>
+        
+    </p>
+    </div>
+    <p>
+        <strong>Description:</strong>
+        <%= @post.description %>
+    </p>
 
-<p>
-    <strong>Description:</strong>
-    <%= @post.description %>
-</p>
+    <p>
+        <strong>Category:</strong>
+        <%= @post.category %>
+    </p>
 
-<p>
-    <strong>Category:</strong>
-    <%= @post.category %>
-</p>
 
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
-  <p>
-    <strong>User:</strong>
-    <%= comment.user_id %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.description %>
-  </p>
-<% end %>
-<% if current_user %>
-<h2>Add a comment:</h2>
-<%= form_with(model: [ @course, @post, @post.comments.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-<% else %>
-<p>
-Please Log in to comment.
-</p>
-<% end %>
-<% if current_user && current_user.id == @post.user_id %>
-<%= link_to 'Edit', edit_course_post_path(@course, @post) %>
-<%= link_to 'Destroy', course_post_path(@course, @post),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-<% end %>
-<%= link_to 'Back', course_path(@course) %>
+    <% if current_user %>
+    <%= form_with(model: [ @course, @post, @post.comments.build ], local: true) do |form| %>
+      <p>
+        Comment as: <%= current_user.user_name %><br>
+        <%= form.text_area :description %>
+      </p>
+      <p>
+        <%= form.submit %>
+      </p>
+    <% end %>
+
+
+
+    <% else %>
+    <p>
+    Please Log in to comment.
+    </p>
+    <% end %>
+    <% if current_user && current_user.id == @post.user_id %>
+    <%= link_to 'Edit', edit_course_post_path(@course, @post) %>
+    <%= link_to 'Destroy', course_post_path(@course, @post),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+
+  <div id="post_comment">
+    <h2>Comments</h2>
+
+
+    <% @post.comments.each do |comment| %>
+      <div class="box">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+      <p>
+      <!--TODO: helpfull to change this to user_name-->
+        <strong>User:</strong>
+        <%= comment.user_id %>
+      </p>
+    
+      <p>
+        <strong>Comment:</strong>
+        <%= comment.description %>
+      </p>
+      </div>
+      </div>
+    </article>
+  </div>
+    <% end %>
+
+    
+  </div>
+  <%= link_to 'Back', course_path(@course) %>
+</div>
+
