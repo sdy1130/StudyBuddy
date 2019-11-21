@@ -1,3 +1,101 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.profile{
+    margin-top: 16px;
+    background: #f8f8f8;
+    padding: 115px 0;
+  }
+
+.profile .profile_container{
+    padding: 50px 0;
+    width: 80%;
+    background: #fff;
+    margin: 0 auto;
+    box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px; 
+}
+
+.profile .profile_upper_container{
+    background: #fff;
+}
+
+.profile .profile_page_break{
+    height: 1px;
+    width: 100%;
+    background: grey;
+}
+
+.profile .profile_lower_container{
+    background: #fff;
+}
+
+.profile .profile_info_container{
+    width: 30%;
+    display: inline-block;
+    background: #fff;
+    margin: 0 15px;
+    padding: 0 15px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px; 
+}
+
+.profile .profile_text_field{
+    border-bottom: 1px grey;
+    margin-left: 20%;
+    text-align: left;
+}
+
+.profile .profile_first_name{
+    float:left;
+    width: 55%;
+}
+
+.profile .profile_last_name{
+    width: 45%;
+}
+
+.profile .default_image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    width: 65%;
+    height: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile .edit_user{
+    float: right;
+    margin-right: 30px;
+    bottom: 0;
+}
+
+.profile input[type = submit]{
+    background: #6dabe4;
+    color: #fff;
+    border-bottom: none;
+    width: auto;
+    padding: 8px 25px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+}
