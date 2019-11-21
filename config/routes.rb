@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'users/profile'
   root to: 'pages#home'
   get 'pages/about'
-  get 'pages/contact'
   get '/search' => 'courses#search', :as => 'search_page'
   devise_for :users
   
