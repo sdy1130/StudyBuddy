@@ -9,7 +9,8 @@
   }
   
 .signup .signup_container{
-    width: 900px;
+    width: 80%;
+    max-width: 1050px;
     background: #fff;
     margin: 0 auto;
     box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
@@ -35,12 +36,17 @@
     padding-left: 34px; 
 }
 
+.edit_signup .signup_form{
+    margin-left:0;
+    width: 65%;
+}
+
 .signup .signup_image{
     padding: 75px 0;
     width: 50%;
+    height: 50%;
     overflow: hidden; 
-    margin: 0 55px;
-    margin-top: 45px;
+    margin-top: 15px;
 }
 
 .signup .signup_title{
@@ -57,6 +63,11 @@
     margin: 10px 0px 10px;
 }
 
+.signup .signup_field_margins{
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
 .signup .signup_field{
     width: 100%;
     display: block;
@@ -64,6 +75,7 @@
     border-bottom: 1px solid #999;
     padding: 6px 0px;
     box-sizing: border-box; 
+    margin-top: 10px;
     @include application_font;
 }
 
@@ -78,17 +90,18 @@
     -webkit-border-radius: 5px;
     -o-border-radius: 5px;
     -ms-border-radius: 5px;
-    margin-top: 5px;
-    cursor: pointer; 
+    margin-top: 25px;
+    cursor: pointer;
 }
 
 .signup .signup_first_name_field{
     float: left;
-    width: 40%;
+    width: 45%;
 }
 
 .signup .signup_last_name_field{
     width: 55%;
+    float: right;
 }
   
 .signup .signup_button:hover {
@@ -98,3 +111,15 @@
 .signup .signup_error_messages {
     color: red;
 }
+
+.signup .default_image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    width: 65%;
+    height: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
