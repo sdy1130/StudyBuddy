@@ -1,24 +1,27 @@
-# README
+# ECE444-Study-Buddy-Group-10
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Getting Started
+https://guides.rubyonrails.org/getting_started.html
 
-Things you may want to cover:
+# Setup
+```
+git clone https://github.com/yui-wong/ECE444-Study-Buddy-Group-10
+bundle install
+rails db:migrate RAILS_ENV=development
+```
 
-* Ruby version
+Rerunning all migration files
+```
+rake db:drop db:create db:migrate
+```
 
-* System dependencies
+# User signup (email confirmation steps):
+Based on this: https://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise
 
-* Configuration
+For development:
+   1. run: "gem install mailcatcher"
+   2. On a terminal do: "mailcatcher"
+   3. Go to http://localhost:1080/ to see the email sent 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For production:
+Not done yet
