@@ -1,39 +1,52 @@
 <h1>Edit Post</h1>
- 
-<%= form_with(model: [ @course, @post ], local: true,:html => {:id => "new_post"}) do |form| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "error") %> prohibited
-        this post from being saved:
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+<div class="container post-form">
+  <div class="post-image">
+    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+  </div>
+  <%= form_with(model: [ @course, @post ], local: true,:html => {:id => "new_post"}) do |form| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@post.errors.count, "error") %> prohibited
+          this post from being saved:
+        </h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <h3>Drop Us a Message</h3>
 
-  <p>
-    <%= form.label :category %><br>
-    <%= form.select :category, ['Tutoring', 'Studymate', 'Question']%>
-    </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
- 
-<% end %>
- 
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.text_field :title, :class=>"form-control",:placeholder=>"title"%>
+      </div>
+      <div class="form-group">
+
+      </div>
+      <div class="form-group">
+        <%= form.select :category, ['Tutoring', 'Studymate', 'Question'],:class=>"form-control"%>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.text_area :description, :class=>"form-control",:placeholder=>"description" %>
+      </div>
+      <div class="form-group">
+        <%= form.submit :class=>"btnContact" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+
 <%= link_to 'Back', course_path(@course) %>
