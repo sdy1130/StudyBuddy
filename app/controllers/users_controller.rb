@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def profile
-    if (current_user && params[:format] == current_user.id)
-      @user = current_user
-    else
+    if (params[:format])
       @user = User.find(params[:format])
+    else
+      @user = current_user
     end
     
   end
