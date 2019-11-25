@@ -6,6 +6,7 @@
 <%= form_tag(search_page_path, method: :get) do %>
   <%= text_field_tag(:search, params[:search], placeholder: 'Enter Course Name', id: 'input_home')%>
   <%=submit_tag('Search',id: 'submit_home') %>
+  <%= link_to "Temporary link to repo page", repos_path %>
 <% end %>
 </div>
 
