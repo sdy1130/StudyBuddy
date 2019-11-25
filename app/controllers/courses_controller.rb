@@ -6,12 +6,14 @@ class CoursesController < ApplicationController
         @posts = Post.all
         # Get course
         @course = Course.find(params[:id])
+        @users = User.all
     end
 
     def search
         @course = Course.find_by(name: (params[:search]).upcase) 
         
         if @course
+            @users = User.all
             render "show"
         else
             @courses = Course.all

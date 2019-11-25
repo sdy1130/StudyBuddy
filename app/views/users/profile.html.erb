@@ -5,42 +5,44 @@
         <%= image_tag ("default-user.png"), :class => "default_image"%>
 
         <div class = "profile_text_field">
-            <% if current_user.user_name %>
-                <p> User name: <%= current_user.user_name%></p>
+            <% if @user.user_name %>
+                <p> User name: <%= @user.user_name%></p>
             <% else %>
                 <p> name is null </p>
             <% end %>
             </div>
 
             <div class = "profile_text_field">
-            <p><%= current_user.email%></p>
+            <p><%= @user.email%></p>
             </div>
 
             <div class = "profile_text_field">
             <span class = "profile_first_name">
-            <% if current_user.first_name %>
-                <p><%= current_user.first_name%></p>
+            <% if @user.first_name %>
+                <p><%= @user.first_name%></p>
             <% end %>
 
             </span>
             <span class = "profile_last_name">
-            <% if current_user.last_name %>
-                <p><%= current_user.last_name%></p>
+            <% if @user.last_name %>
+                <p><%= @user.last_name%></p>
             <% end %>
             </span>
 
             </div>
         </div>
-
-        <div class = "edit_user">
-        <%= button_to "Edit User", edit_user_registration_path, :method => "get" %>
-        </div>
+        
+        <% if (current_user && @user.id == current_user.id) %>
+            <div class = "edit_user">
+            <%= button_to "Edit User", edit_user_registration_path, :method => "get" %>
+            </div>
+        <% end %>
     </div>
 
 <div class = "profile_page_break"> </div>
 <div class = "profile_lower_container">
-<% if current_user.repos.any? %>
-    <%= current_user.repos.each do |r|%>
+<% if @user.repos.any? %>
+    <%= @user.repos.each do |r|%>
     <p><%= r.name%></p>
     <p><%= r.description%></p>
     <p><%= r.public%></p>

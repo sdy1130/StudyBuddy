@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+    before_action :authenticate_user!, only: [:new]
+
     def new
         @post = Post.new
         @course = Course.find(params[:course_id])
