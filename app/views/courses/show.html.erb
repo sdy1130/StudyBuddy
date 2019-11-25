@@ -24,7 +24,7 @@
   <div>
       <div class = "post_header">
         <div><h4 class = "course_title"><%= post.category %> - <%= post.title %></h4></div>
-        <div>Posted by user: <%= post.user_id %></div>
+        <div>Posted by user: <%= link_to "#{@users.find(post.user_id).user_name}", users_profile_path(@users.find(post.user_id)) %></div>
       </div>
       <div class = "line_break"> </div>
       <%= link_to 'Show', course_post_path(post.course, post) %>
