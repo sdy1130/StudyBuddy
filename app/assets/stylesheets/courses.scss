@@ -164,12 +164,42 @@ th, td {
     display: inline-block;
 }
 
+.course_page .create_first_post_link{
+    color: #6dabe4;
+}
+
+
+.course_page .create_first_post_title{
+    text-align: center;
+}
+
+.course_page .post_link{
+    color: black
+}
+
 .course_page .back_button_container{
     margin: auto;
 }
 
 .course_page .button_to{
     display: block;
+}
+
+.course_page .create_post_repo_button_container{
+    margin-bottom: 10px;
+}
+
+.course_page .create_post_repo_button{
+    background: #6dabe4;
+    color: #fff;
+    border-bottom: none;
+    width: 100%;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px; 
+    cursor: pointer;
 }
 
 .course_page .button{
