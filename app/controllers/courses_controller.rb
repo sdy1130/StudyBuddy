@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
     end
 
     def search
-        @course = Course.find_by(name: (params[:search]).upcase) 
+        @course = Course.find_by(code: (params[:search]).upcase) 
         
         if @course
             @users = User.all
