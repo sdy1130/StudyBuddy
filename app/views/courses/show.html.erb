@@ -1,86 +1,85 @@
 <div class = "course_header">
-<%= image_tag ("default-course-header.png"), :class => "default_header_image"%>
-<h2 class = "course_title"><%= @course.code %> <%= @course.name %></h2>
+  <%= image_tag ("default-course-header.png"), :class => "default_header_image"%>
+  <h2 class = "course_title"><%= @course.code %> <%= @course.name %></h2>
 </div>
 
 <div class = "course_page">
-<div class = "course_page_lower_container">
-<div class = "course_page_container">
-  
-  <div class = "course_page_left_container">
-
-  <% if @course.posts.count == 0 %>
-  <div class = "course_post">
-  
-    <div class = "post_header">
-        <div><h5 class = "course_title create_first_post_title">
-        <%= link_to new_course_post_path(@course), :class => "post_link" do%>
-          Create First Post!
+  <div class = "course_page_lower_container">
+    <div class = "course_page_container">
+    
+      <div class = "course_page_left_container">
+        <% if @course.posts.count == 0 %>
+          <div class = "course_post">
+            <div class = "post_header">
+                  <div><h5 class = "course_title create_first_post_title">
+                  <%= link_to new_course_post_path(@course), :class => "post_link" do%>
+                    Create First Post!
+                  <% end %>
+                  </h5></div>
+              </div>
+            
+            </div>
+          </div>
         <% end %>
-        </h5></div>
-    </div>
-  
-  </div>
-  </div>
-  <% end %>
-  <% @course.posts.order(:created_at).reverse.each do |post| %>
-  <div class = "course_post">
-  <div>
-      <div class = "post_header">
-        <div><h5 class = "course_title"> <%= link_to "#{post.category+'-'+post.title}", course_post_path(post.course, post), :class => "post_link" %></h5></div>
-        <div>Posted by user: <strong><%= link_to "#{@users.find(post.user_id).user_name}", users_profile_path(@users.find(post.user_id)), :class => "post_links"%> </strong></div>
-      </div>
-      <div class = "line_break"> </div>
-      <div class ="post_description_container">
-      <%= post.description%>
-      </div>
-  </div>
-  </div>
-  <% end %>
-  </div>
-</div>
 
- <div class = "course_page_right_container">
+        <% @course.posts.order(:created_at).reverse.each do |post| %>
+          <div class = "course_post">
+            <div>
+                <div class = "post_header">
+                  <div><h5 class = "course_title"> <%= link_to "#{post.category+'-'+post.title}", course_post_path(post.course, post), :class => "post_link" %></h5></div>
+                  <div>Posted by user: <strong><%= link_to "#{@users.find(post.user_id).user_name}", users_profile_path(@users.find(post.user_id)), :class => "post_links"%> </strong></div>
+                </div>
+                <div class = "line_break"> </div>
+                <div class ="post_description_container">
+                <%= post.description%>
+                </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+      </div>
+
+  <div class = "course_page_right_container">
   <div class = "course_right_sub_container">
   <div class = "course_right_info_container">
   <h4 class = "course_title"> <%= @course.code %> <%= @course.name %> </h4>
   <div class = "line_break"> </div>
   <%= @course.description %>
-</div>
-  <% if !@course.users.include?(current_user)%>
-    <div class = "back_button_container">
-    <%= button_to 'Join', join_course_path(:course_id => @course), :class => "button", :form_class => "button_to"%>
-    <!-- <%= button_to 'BACK', courses_path, :method => "get", :class => "button", :form_class => "button_to" %> -->
-    </div>
-  <% else %>
-  <div class = "course_right_info_container">
-    <%= button_to 'Create Post', new_course_post_path(@course), :method => "get", :class => "create_post_repo_button", :form_class => "button_to create_post_repo_button_container" %>
-    <%= button_to 'Create repo', new_repo_path(:course_id => @course), :method => "get", :class => "create_post_repo_button", :form_class => "button_to create_post_repo_button_container" %>
   </div>
-  <% end %>
-  </div>
-
-  <div class = "course_right_sub_container">
-  <div class = "course_right_info_container">
-  <h4 class = "course_title">Public Repos</h4>
-  <div class = "line_break"> </div>
-  <% if @course.repo.any?%>
-  <% @course.repo.each do |r| %>
-  <div>
-      <div class = "post_header">
-        <div><h4 class = "course_title"><%= r.title %> repo</h4></div>
-        <div>Posted by user: <%= r.user_id %></div>
+    <% if !@course.users.include?(current_user)%>
+      <div class = "back_button_container">
+      <%= button_to 'Join', join_course_path(:course_id => @course), :class => "button", :form_class => "button_to"%>
+      <!-- <%= button_to 'BACK', courses_path, :method => "get", :class => "button", :form_class => "button_to" %> -->
       </div>
-      <div class = "line_break"> </div>
-  </div>
-  <% end %>
-  <% else %>
-    No public repos
-  <% end %>
-  </div>
-  </div>
-  </div>
+    <% else %>
+    <div class = "course_right_info_container">
+      <%= button_to 'Create Post', new_course_post_path(@course), :method => "get", :class => "create_post_repo_button", :form_class => "button_to create_post_repo_button_container" %>
+      <%= button_to 'Create repo', new_repo_path(:course_id => @course), :method => "get", :class => "create_post_repo_button", :form_class => "button_to create_post_repo_button_container" %>
+    </div>
+    <% end %>
+    </div>
 
-</div>
+    <div class = "course_right_sub_container">
+    <div class = "course_right_info_container">
+    <h4 class = "course_title">Public Repos</h4>
+    <div class = "line_break"> </div>
+    <% if @course.repo.any?%>
+    <% @course.repo.each do |r| %>
+    <div>
+        <div class = "post_header">
+          <div><h4 class = "course_title"><%= r.title %> repo</h4></div>
+          <div>Posted by user: <%= r.user_id %></div>
+        </div>
+        <div class = "line_break"> </div>
+    </div>
+    <% end %>
+    <% else %>
+      No public repos
+    <% end %>
+  </div>
+  </div>
+  </div>
+  </div>
 
 </div>

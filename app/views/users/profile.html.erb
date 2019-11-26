@@ -25,34 +25,72 @@
         <% end %>
     </div>
 
-<div class = "profile_page_break"> </div>
+</div>
+
 <div class = "profile_lower_container">
-<h2> Repos </h2>
-<% if @user.repos.any? %>
-    <%= @user.repos.find_each do |r|%>
-    <p><%= r.name%></p>
-    <p><%= r.description%></p>
-    <p><%= r.public%></p>
-    <% end %>
-<% else %>
-    <p>No repo yet</p> 
-<% end %>
 
-<h2> Courses </h2>
-<% if @user.courses.any? %>
-<%= @user.courses.find_each do |course|%>
-    <p><%= course.code%><%= course.name%></p>
-<% end %> 
-<% end %> 
+    
+      <div class = "profile_page_left_container">
+        <div class = "users_post">
+        <div>
+            <div class = "post_header">
+                <a data-toggle="collapse" href="#collapse_posts" role="button" aria-expanded="false" aria-controls="collapseExample" class = "collapse_toggle course_link">
+                <h4>See Recent Posts</h5>
+                </a>
+            </div>
+        </div>
+        </div>
 
-<h2> Posts </h2>
-<% if @user.posts.any? %>
-    <%= @user.posts.find_each do |p|%>
-    <p><%= p.title%></p>
+        <div class ="collapse" id = "collapse_posts">
+        <% @user.posts.limit(5).order(:created_at).reverse.each do |post| %>
+          <div class = "users_post">
+            <div>
+                <div class = "post_header">
+                  <div><h5> <%= link_to "#{post.category+'-'+post.title}", course_post_path(post.course, post), :class => "post_title" %></h5></div>
+                  <div>Post in <strong><%= link_to "#{@course.find(post.course_id).code}", course_path(:id => post.course_id), :class => "course_link"%></strong></div>
+                </div>
+                <div class = "line_break"> </div>
+                <div class ="post_description_container">
+                    <%= post.description%>
+                </div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+
+      </div>
+      </div>
+
+  <div class = "profile_page_right_cotainer">
+  <div class = "profile_right_sub_container">
+  <div class = "profile_right_info_container">
+  <h4 class = "course_title">Course list</h4>
+  <div class = "line_break"> </div>
+    <% if @user.courses.any? %>
+    <%= @user.courses.find_each do |course|%>
+        <div><strong><%= link_to "#{course.code+" "+course.name}", course_path(:id => course.id), :class => "course_link"%></strong>
+        </div>
+    <% end %> 
+    <% end %> 
+  </div>
+  </div>
+
+    <div class = "profile_right_sub_container">
+    <div class = "profile_right_info_container">
+    <h4 class = "course_title">Public Repos</h4>
+    <div class = "line_break"> </div>
+    <% if @user.repos.any?%>
+    <% @user.repos.find_each do |r| %>
+    <div><strong><%= link_to "#{r.name}", repo_path(:id => r.id), :class => "course_link"%></strong>
+    </div>
     <% end %>
-<% else %>
-    <p>No posts yet</p> 
-<% end %>
+    <% end %>
+    <div class = "create_repo_button_container">
+    <%= button_to 'Create repo', new_repo_path(:course_id => @course), :method => "get", :class => "create_repo_button" %>
+    </div>
+  </div>
+  </div>
+
 </div>
 
 </div>
