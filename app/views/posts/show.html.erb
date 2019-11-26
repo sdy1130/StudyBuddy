@@ -8,15 +8,23 @@
 
       </p>
     </div>
+
+    <p>
+      <strong><%= @post.category %></strong> post, by user:
+      <%=@users.find(@post.user_id).user_name%>
+    </p>
+
     <p>
       <strong>Description:</strong>
       <%= @post.description %>
     </p>
 
-    <p>
-      <strong>Category:</strong>
-      <%= @post.category %>
-    </p>
+    <div class ="edit_delete_container">
+    <% if current_user && current_user.id == @post.user_id %>
+        <%= button_to "Edit Comment", edit_course_post_path(@course, @post), :method => "get", :class => "button post_button", :form_class => "login_buton_form" %>
+        <%= button_to "Delete Comment",course_post_path(@course, @post), :method => "delete", :data => { confirm: 'Are you sure?' }, :class => "button post_button", :form_class => "login_buton_form" %>
+    <% end %>
+    </div>
 
 
     <% if current_user %>
@@ -25,47 +33,40 @@
       Comment as: <%= current_user.user_name %><br>
       <%= form.text_area :description ,class:"form-control",height:"58px" %>
     </p>
-    <p>
-      <%= form.submit :class=>'btn btn-primary mb-2' %>
-    </p>
+    <div class = "create_post_container">
+      <%= form.submit :class=>'button post_button'%>
+    </div>
     <% end %>
 
 
 
     <% else %>
-    <p>
-      Please Log in to comment.
-    </p>
-    <% end %>
-    <% if current_user && current_user.id == @post.user_id %>
-    <%= link_to 'Edit', edit_course_post_path(@course, @post) %>
-    <%= link_to 'Destroy', course_post_path(@course, @post),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
+    <div class = "write_comment_container">
+      <div class = "write_comment">Write a comment! </div>
+      <%= button_to "Log in", new_user_session_path, :method => "get", :class => "button login_button", :form_class => "login_buton_form"%>
+      <%= button_to "Sign up", new_user_registration_path, :method => "get", :class => "button login_button", :form_class => "login_buton_form"%>
+    </div>
     <% end %>
   </div>
 
 
   <div id="post_comment">
-    <h2>Comments</h2>
-
-    <% @post.comments.each do |comment| %>
+    <% @post.comments.order(:created_at).reverse.each do |comment| %>
     <div class="comment">
-      <div class="comment_container">
+
         <div class="comment_upper_container">
 
-          <p>
-            <!--TODO: helpfull to change this to user_name-->
-            <strong>User:</strong>
-            <%= comment.user_id %>
-          </p>
+          <div class = "user_name_container">
+            <strong>User:
+            <%= link_to "#{@users.find(comment.user_id).user_name}", users_profile_path(@users.find(comment.user_id)), :class => "post_links"%>
+            </strong>
+          </div>
 
           <p>
-            <strong>Comment:</strong>
             <%= comment.description %>
           </p>
         </div>
-      </div>
+
     </div>
 
 
@@ -76,5 +77,3 @@
 
   </div>
 
-
-  <%= link_to 'Back', course_path(@course) %>

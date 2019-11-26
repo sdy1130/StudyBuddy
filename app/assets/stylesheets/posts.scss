@@ -9,13 +9,65 @@
     position: absolute;
     left: 20%;
     background-color: white;
-    padding: 5px;
+    padding: 20px;
 }
 
 #post_body{
     position: relative;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; 
     margin: 0 0 20px 0;
+}
+
+.write_comment_container{
+    width: 100%;
+    margin: 10px 0;
+    margin-right: 20px;
+    height: 30px;
+    padding-top: 5px;
+    border-top: 1px solid #ddd;
+}
+
+.write_comment_container .write_comment{
+    width: 40%;
+    display: inline-block;
+    margin-left: 20px
+}
+
+.write_comment_container .login_buton_form{
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+.write_comment_container .login_button{
+    width: 100px;
+}
+
+#post .button{
+    background: #6dabe4;
+    color: #fff;
+    border-bottom: none;
+    display: inline-block;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px; 
+    cursor: pointer;
+}
+
+#post .post_button{
+    float: right;
+    margin-right: 10px;
+}
+#post .edit_delete_container{
+    width:100%;
+    display: inline-block;
+}
+
+#post .create_post_container{
+    width:100%;
+    display: inline-block;
 }
 
 .post_comment{
@@ -23,8 +75,10 @@
 }
 
 .comment{
-    margin-top: 16px;
+    margin-top: 5px;
+    padding-top: 10px;
     background: #0000;;
+    border-bottom: 1px solid #ddd; 
   }
 
 .comment .comment_container{
@@ -32,17 +86,20 @@
     width: 100%;
     background: #fff;
     margin: 0 auto;
-    box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
-    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -o-border-radius: 20px;
     -ms-border-radius: 20px; 
     border: 1px double #ccc;
+}
+
+.comment .post_links{
+    color: #6dabe4;
+}
+
+.comment .user_name_container{
+    border-bottom: 2px solid #ddd; 
 }
 
 .comment .comment_upper_container{
