@@ -1,16 +1,17 @@
 <%= form_with(model: [ @repo, @repo.items.build ], local: true)  do |form| %>
+  <div class="row">
+  <div class="col-md">
+    <div class="form-group">
+      <%= form.text_field :name, :class=>"form-control",:placeholder=>"name"%>
+    </div>
+    <div class="form-group">
     <p>
-      <%= form.label :name %><br>
-      <%= form.text_field :name %>
+      <%= form.text_area :description, :class=>"form-control",:placeholder=>"description" %>
     </p>
-    <p>
-      <%= form.label :description %><br>
-      <%= form.text_area :description %>
-    </p>
+  </div>
 
     <%= form.file_field :url%>
-
-    <p>
-      <%= form.submit %>
-    </p>
+    <%= form.submit :class=>"btnSubmit" %>
+    </div>
+  </div>
   <% end %>
