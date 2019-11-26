@@ -1,20 +1,77 @@
-<h1>All courses</h1>
-
+<div class = "course_index">
 
 <div id="search_bar_course">
 <%= form_tag(search_page_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search], placeholder: 'Enter Course Name', id: 'input_course')%>
+  <%= text_field_tag(:search, params[:search], placeholder: 'Enter Course Code', id: 'input_course')%>
   <%=submit_tag('Search', id: 'submit_course') %>
 <% end %>
 </div>
 
-<div>
-<table id="courses">
-  <% @courses.each do |course| %>
-    <tr>
-      <td><%= course.code %> <%= course.name %></td>
-      <td><%= link_to 'Show', course_path(course) %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="course_list_container">
+  <a data-toggle="collapse" href="#collapse_first_year" role="button" aria-expanded="false" aria-controls="collapseExample" class = "collapse_toggle">
+      <strong>First Year courses </strong>
+  </a>
+  <div class ="line_break"></div>
+  <div class ="collapse" id = "collapse_first_year">
+  <table id="courses">
+    <% @courses.where('year = 1').each do |course| %>
+      <tr>
+        <td><%= course.code %> <%= course.name %></td>
+        <td><%= link_to 'Show', course_path(course), :class => "course_list_show"%></td>
+      </tr>
+    <% end %>
+  </table>
+  </div>
 </div>
+
+<div class="course_list_container">
+  <a data-toggle="collapse" href="#collapse_second_year" role="button" aria-expanded="false" aria-controls="collapseExample" class = "collapse_toggle">
+      <strong>Second Year courses </strong>
+  </a>
+  <div class ="line_break"></div>
+  <div class ="collapse" id = "collapse_second_year">
+  <table id="courses">
+    <% @courses.where('year = 2').each do |course| %>
+      <tr>
+        <td><%= course.code %> <%= course.name %></td>
+        <td><%= link_to 'Show', course_path(course), :class => "course_list_show"%></td>
+      </tr>
+    <% end %>
+  </table>
+  </div>
+</div>
+
+<div class="course_list_container">
+  <a data-toggle="collapse" href="#collapse_third_year" role="button" aria-expanded="false" aria-controls="collapseExample" class = "collapse_toggle">
+      <strong>Third Year courses </strong>
+  </a>
+  <div class ="line_break"></div>
+  <div class ="collapse" id = "collapse_third_year">
+  <table id="courses">
+    <% @courses.where('year = 3').each do |course| %>
+      <tr>
+        <td><%= course.code %> <%= course.name %></td>
+        <td><%= link_to 'Show', course_path(course), :class => "course_list_show"%></td>
+      </tr>
+    <% end %>
+  </table>
+  </div>
+</div>
+
+<div class="course_list_container">
+  <a data-toggle="collapse" href="#collapse_fourth_year" role="button" aria-expanded="false" aria-controls="collapseExample" class = "collapse_toggle">
+      <strong>Fourth Year courses </strong>
+  </a>
+  <div class ="line_break"></div>
+  <div class ="collapse" id = "collapse_fourth_year">
+  <table id="courses">
+    <% @courses.where('year = 4').each do |course| %>
+      <tr>
+        <td><%= course.code %> <%= course.name %></td>
+        <td><%= link_to 'Show', course_path(course), :class => "course_list_show"%></td>
+      </tr>
+    <% end %>
+  </table>
+  </div>
+</div>
+
