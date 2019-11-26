@@ -6,6 +6,6 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
-    
+    @course = Course.all
   end
 end
