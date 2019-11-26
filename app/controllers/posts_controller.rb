@@ -41,6 +41,7 @@ class PostsController < ApplicationController
     def show
         @course = Course.find(params[:course_id])
         @post = @course.posts.find(params[:id])
+        @users = User.all
     end
 
     def destroy

@@ -28,7 +28,7 @@
   <div>
       <div class = "post_header">
         <div><h5 class = "course_title"> <%= link_to "#{post.category+'-'+post.title}", course_post_path(post.course, post), :class => "post_link" %></h5></div>
-        <div>Posted by user: <%= link_to "#{@users.find(post.user_id).user_name}", users_profile_path(@users.find(post.user_id)), :class => "post_links"%></div>
+        <div>Posted by user: <strong><%= link_to "#{@users.find(post.user_id).user_name}", users_profile_path(@users.find(post.user_id)), :class => "post_links"%> </strong></div>
       </div>
       <div class = "line_break"> </div>
       <div class ="post_description_container">

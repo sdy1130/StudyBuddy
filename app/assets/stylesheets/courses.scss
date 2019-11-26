@@ -126,12 +126,6 @@ th, td {
     margin: 0 auto;
 }
 
-.course_page .line_break{
-    height: 1px;
-    width: 100%;
-    background: grey;
-}
-
 .course_page .course_page_right_container{
     display: inline-block;
     width: 35%;
@@ -164,17 +158,16 @@ th, td {
     display: inline-block;
 }
 
-.course_page .create_first_post_link{
-    color: #6dabe4;
-}
-
-
 .course_page .create_first_post_title{
     text-align: center;
 }
 
 .course_page .post_link{
     color: black
+}
+
+.course_page .user_link{
+    color: #6dabe4;
 }
 
 .course_page .back_button_container{
