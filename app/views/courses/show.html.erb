@@ -8,31 +8,32 @@
 <div class = "course_page_container">
   
   <div class = "course_page_left_container">
+
+  <% if @course.posts.count == 0 %>
   <div class = "course_post">
   
     <div class = "post_header">
-        <div><h4 class = "course_title">Create Post</h4></div>
+        <div><h5 class = "course_title create_first_post_title">
+        <%= link_to new_course_post_path(@course), :class => "post_link" do%>
+          Create First Post!
+        <% end %>
+        </h5></div>
     </div>
-    <div class = "line_break"> </div>
-    <%= link_to 'Create Post', new_course_post_path(@course) %></td>
-
   
   </div>
-  <% @course.posts.each do |post| %>
+  </div>
+  <% end %>
+  <% @course.posts.order(:created_at).reverse.each do |post| %>
   <div class = "course_post">
   <div>
       <div class = "post_header">
-        <div><h4 class = "course_title"><%= post.category %> - <%= post.title %></h4></div>
-        <div>Posted by user: <%= link_to "#{@users.find(post.user_id).user_name}", users_profile_path(@users.find(post.user_id)) %></div>
+        <div><h5 class = "course_title"> <%= link_to "#{post.category+'-'+post.title}", course_post_path(post.course, post), :class => "post_link" %></h5></div>
+        <div>Posted by user: <%= link_to "#{@users.find(post.user_id).user_name}", users_profile_path(@users.find(post.user_id)), :class => "post_links"%></div>
       </div>
       <div class = "line_break"> </div>
-      <%= link_to 'Show', course_post_path(post.course, post) %>
-      <% if current_user && current_user.id == post.user_id %>
-        <%= link_to 'Edit', edit_course_post_path(post.course, post) %>
-        <%= link_to 'Destroy', course_post_path(post.course, post),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
-      <% end %>
+      <div class ="post_description_container">
+      <%= post.description%>
+      </div>
   </div>
   </div>
   <% end %>
@@ -51,6 +52,11 @@
     <%= button_to 'Join', join_course_path(:course_id => @course), :class => "button", :form_class => "button_to"%>
     <!-- <%= button_to 'BACK', courses_path, :method => "get", :class => "button", :form_class => "button_to" %> -->
     </div>
+  <% else %>
+  <div class = "course_right_info_container">
+    <%= button_to 'Create Post', new_course_post_path(@course), :method => "get", :class => "create_post_repo_button", :form_class => "button_to create_post_repo_button_container" %>
+    <%= button_to 'Create repo', new_repo_path(:course_id => @course), :method => "get", :class => "create_post_repo_button", :form_class => "button_to create_post_repo_button_container" %>
+  </div>
   <% end %>
   </div>
 
