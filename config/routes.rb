@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/profile'
   root to: 'pages#home'
   get 'pages/about'
-  get '/search' => 'courses#search', :as => 'search_page'
+
   devise_for :users
   
   resources :courses do
@@ -10,6 +10,9 @@ Rails.application.routes.draw do
       resources :comments
     end
   end
+
+  get '/search' => 'courses#search', :as => 'search_page'
+  post'courses/join_action', :as => 'join_course'
 
   resources :repos do
     resources :items do

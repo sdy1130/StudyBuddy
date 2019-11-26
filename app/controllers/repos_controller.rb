@@ -1,4 +1,6 @@
 class ReposController < ApplicationController
+    before_action :authenticate_user!, only: [:new, :create]
+
     def index
         @repos = Repo.all
     end
@@ -18,7 +20,8 @@ class ReposController < ApplicationController
     def create
         @repo = Repo.new(repo_params)
         if @repo.save
-            # What odes this redirect to?
+            #adding the user to repo's user table
+            @repo.users << current_user
             redirect_to @repo
         else
             render 'new'

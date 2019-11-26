@@ -1,14 +1,13 @@
 <div class = "course_header">
 <%= image_tag ("default-course-header.png"), :class => "default_header_image"%>
-<h2 class = "course_title"><%= @course.name %> <%= @course.description %></h2>
-<div class = "back_button_container"><%= button_to 'Back', courses_path, :method => "get", :class => "back_button" %></td></div>
+<h2 class = "course_title"><%= @course.code %> <%= @course.name %></h2>
 </div>
 
 <div class = "course_page">
 <div class = "course_page_lower_container">
 <div class = "course_page_container">
   
-  <div class = "course_post_container">
+  <div class = "course_page_left_container">
   <div class = "course_post">
   
     <div class = "post_header">
@@ -32,7 +31,7 @@
         <%= link_to 'Edit', edit_course_post_path(post.course, post) %>
         <%= link_to 'Destroy', course_post_path(post.course, post),
             method: :delete,
-            data: { confirm: 'Are you sure?' } %>>
+            data: { confirm: 'Are you sure?' } %>
       <% end %>
   </div>
   </div>
@@ -40,16 +39,31 @@
   </div>
 </div>
 
- <div class = "course_repos_container">
-  <div class = "course_repo">
+ <div class = "course_page_right_container">
+  <div class = "course_right_sub_container">
+  <div class = "course_right_info_container">
+  <h4 class = "course_title"> <%= @course.code %> <%= @course.name %> </h4>
+  <div class = "line_break"> </div>
+  <%= @course.description %>
+</div>
+  <% if !@course.users.include?(current_user)%>
+    <div class = "back_button_container">
+    <%= button_to 'Join', join_course_path(:course_id => @course), :class => "button", :form_class => "button_to"%>
+    <!-- <%= button_to 'BACK', courses_path, :method => "get", :class => "button", :form_class => "button_to" %> -->
+    </div>
+  <% end %>
+  </div>
+
+  <div class = "course_right_sub_container">
+  <div class = "course_right_info_container">
   <h4 class = "course_title">Public Repos</h4>
   <div class = "line_break"> </div>
-  <% if @course.posts.any?%>
-  <% @course.posts.each do |post| %>
+  <% if @course.repo.any?%>
+  <% @course.repo.each do |r| %>
   <div>
       <div class = "post_header">
-        <div><h4 class = "course_title"><%= post.title %> repo</h4></div>
-        <div>Posted by user: <%= post.user_id %></div>
+        <div><h4 class = "course_title"><%= r.title %> repo</h4></div>
+        <div>Posted by user: <%= r.user_id %></div>
       </div>
       <div class = "line_break"> </div>
   </div>
@@ -57,6 +71,7 @@
   <% else %>
     No public repos
   <% end %>
+  </div>
   </div>
   </div>
 
