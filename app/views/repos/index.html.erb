@@ -1,9 +1,15 @@
 
 <h1>Listing Repos</h1>
-<%= link_to 'New repo', new_repo_path %>
-<%= link_to 'Home', root_path%>
 
-<table>
+<div id="search_bar_repo">
+<%= form_tag(search_repo_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search], placeholder: 'Enter Repo Name', id: 'input_repo')%>
+  <%=submit_tag('Search', id: 'submit_repo') %>
+<% end %>
+</div>
+
+<%= link_to '<button type="button" class="btn btn-primary" id="repos">New Post</button>'.html_safe, new_repo_path %>
+<table id="repos">
   <tr>
     <th>Name</th>
     <th>Description</th>

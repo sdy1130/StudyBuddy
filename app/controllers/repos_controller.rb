@@ -42,6 +42,18 @@ class ReposController < ApplicationController
         redirect_to repos_path
     end
 
+    def search
+        @repo = Repo.find_by(name: (params[:search])) 
+        
+        if @repo
+            @users = User.all
+            render "show"
+        else
+            @repos = Repo.all
+            render "index"
+        end
+    end
+
     private
         def repo_params
             params.require(:repo).permit(:name, :description)
