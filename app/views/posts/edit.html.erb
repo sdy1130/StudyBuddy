@@ -38,15 +38,9 @@
       </div>
       <div class="form-group">
         <%= form.submit :class=>"btnContact" %>
+        <%= link_to '<button type="button" class="btnBack">Back</button>'.html_safe, course_path(@course) %>
       </div>
     </div>
   </div>
   <% end %>
 </div>
-
-
-
-
-
-
-<%= link_to 'Back', course_path(@course) %>
