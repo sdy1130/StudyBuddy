@@ -85,9 +85,11 @@
     </div>
     <% end %>
     <% end %>
+    <% if user_signed_in? && current_user == @user%>
     <div class = "create_repo_button_container">
     <%= button_to 'Create repo', new_repo_path(:course_id => @course), :method => "get", :class => "create_repo_button" %>
     </div>
+    <% end %>
   </div>
   </div>
 
