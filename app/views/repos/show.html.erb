@@ -1,18 +1,51 @@
-<p>
-<strong>Repo Name:</strong>
-<%= @repo.name %>
-</p>
+<div id="repo">
+  <div id="repo_body">
+    <div id="repo_name">
+      <p>
+        <strong>
+          <font size=6em><%= @repo.name %></font>
+        </strong>
 
-<p>
-<strong>Description:</strong>
-<%= @repo.description %>
-</p>
+      </p>
+    </div>
+    <p>
+      <strong>Description:</strong>
+      <%= @repo.description %>
+    </p>
+  </div>
 
-<h2>Items</h2>
-<%= render @repo.items %>
 
-<h2>Add an Item:</h2>
-<%= render 'items/form' %>
 
-<%= link_to 'Edit', edit_repo_path(@repo) %> |
-<%= link_to 'Back', repos_path %>
+  <table id="repos">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Download</th>
+      <th>Delete</th>
+    </tr>
+
+    <% @repo.items.each do |item| %>
+    <% if item.name != nil %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.description %></td>
+      <td><%= link_to 'Download', repo_item_download_file_path(@repo, item) %></td>
+      <td><%= link_to 'Destroy item', [item.repo, item],
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end%>
+    <% end %>
+  </table>
+
+</div>
+
+<div class="course_page">
+    <div class="course_page_right_container">
+      <div class="course_right_sub_container">
+          <%= render 'items/form' %>
+      </div>
+    </div>
+</div>
+  </div>
+</div>
