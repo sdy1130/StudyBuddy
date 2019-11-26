@@ -1,32 +1,46 @@
-
-<%= form_with model: @repo, local: true do |form| %>
- 
-    <% if @repo.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@repo.errors.count, "error") %> prohibited
-          this article from being saved:
-        </h2>
-        <ul>
-          <% @repo.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-   
-    <p>
-      <%= form.label :name %><br>
-      <%= form.text_field :name %>
-    </p>
-   
-    <p>
-      <%= form.label :description %><br>
-      <%= form.text_area :description %>
-    </p>
-   
-    <p>
-      <%= form.submit %>
-    </p>
-   
+<div class="container post-form">
+  <div class="post-image">
+    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+  </div>
+  <%= form_with model: @repo, local: true do |form| %>
+  <% if @repo.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@repo.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h2>
+    <ul>
+      <% @repo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
+  <h3>Create a new Repo</h3>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.text_field :name, :class=>"form-control",:placeholder=>"title"%>
+      </div>
+      <div class="form-group">
+
+      </div>
+      <div class="form-group">
+        <%= form.select :category, ['ECE444', 'ECE496','CSC343','ECE302', 'ECE216','ECE221','ECE231', 'MAT185','CIV100',],:class=>"form-control"%>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.text_area :description, :class=>"form-control",:placeholder=>"description" %>
+      </div>
+      <div class="form-group">
+        <%= form.submit :class=>"btnContact" %>
+        <%= link_to '<button type="button" class="btnBack">Back</button>'.html_safe, repos_path %>
+        
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
