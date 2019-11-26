@@ -6,7 +6,7 @@
 
         <div class = "profile_text_field">
             <% if @user.user_name %>
-                <p> User name: <%= @user.user_name%></p>
+                <p><%= @user.user_name%></p>
             <% else %>
                 <p> name is null </p>
             <% end %>
@@ -16,33 +16,20 @@
             <p><%= @user.email%></p>
             </div>
 
-            <div class = "profile_text_field">
-            <span class = "profile_first_name">
-            <% if @user.first_name %>
-                <p><%= @user.first_name%></p>
-            <% end %>
-
-            </span>
-            <span class = "profile_last_name">
-            <% if @user.last_name %>
-                <p><%= @user.last_name%></p>
-            <% end %>
-            </span>
-
-            </div>
         </div>
         
         <% if (user_signed_in? && @user.id == current_user.id) %>
             <div class = "edit_user">
-            <%= button_to "Edit User", edit_user_registration_path, :method => "get" %>
+            <%= button_to "Edit User", edit_user_registration_path(@course), :method => "get" %>
             </div>
         <% end %>
     </div>
 
 <div class = "profile_page_break"> </div>
 <div class = "profile_lower_container">
+<h2> Repos </h2>
 <% if @user.repos.any? %>
-    <%= @user.repos.each do |r|%>
+    <%= @user.repos.find_each do |r|%>
     <p><%= r.name%></p>
     <p><%= r.description%></p>
     <p><%= r.public%></p>
@@ -50,10 +37,22 @@
 <% else %>
     <p>No repo yet</p> 
 <% end %>
-<p>Need to add some course here </p> 
-<p>Maybe link to recent posts as well</p> 
 
+<h2> Courses </h2>
+<% if @user.courses.any? %>
+<%= @user.courses.find_each do |course|%>
+    <p><%= course.code%><%= course.name%></p>
+<% end %> 
+<% end %> 
 
+<h2> Posts </h2>
+<% if @user.posts.any? %>
+    <%= @user.posts.find_each do |p|%>
+    <p><%= p.title%></p>
+    <% end %>
+<% else %>
+    <p>No posts yet</p> 
+<% end %>
 </div>
 
 </div>
