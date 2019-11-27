@@ -61,24 +61,21 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # To set up email stuff for user sign up, I based it on this:
-  #https://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
-  
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
 
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address              =>  'smtp.sendgrid.net',
+    :port                 =>  '587',
+    :authentication       =>  :plain,
+    :user_name            =>  'app152942034@heroku.com',
+    :password             =>  'hu80o1ls6768',
+    :domain               =>  'heroku.com',
+    :enable_starttls_auto  =>  true
+  }
 
-  #put this in bashrc?
-  # export SENDMAIL_PASSWORD=password
-  # export SENDMAIL_USERNAME=KHongSanFrancisco@gmail.com
-  # export MAIL_HOST=localhost:3000
 end
