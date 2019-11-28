@@ -1,16 +1,31 @@
-<h2>Resend confirmation instructions</h2>
 
+<div class = "signin">
+<div class = "signin_container">
+<div class = "content">
+<div class = "signin_image">
+  <figure><%= image_tag ("signin-image.jpg") %></figure>
+</div>
+
+<div class = "signin_form">
+<h2 class = "title">Resend confirmation instructions</h2>
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  <div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+        value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+        :placeholder => "Email",
+        :class => "signin_input_field"
+    %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
+  <div>
+    <%= f.submit "Resend confirmation instructions", :class => "signin_button" %>
   </div>
+
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</div>
+
+
