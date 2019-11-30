@@ -62,3 +62,6 @@ gem 'jquery-rails'
 gem 'popper_js'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+
+gem 'geocoder'
+gem 'gmaps4rails'

@@ -1,0 +1,60 @@
+<p>
+"asdasfasgfa"
+</p>
+<p>
+"asdasfasgfa"
+</p>
+<p>
+"asdasfasgfa"
+</p>
+<p>
+"asdasfasgfa"
+
+</p>
+
+<p>
+<strong>Title:</strong>
+<%= @offering.cost %>
+</p>
+
+<p>
+<strong>Text:</strong>
+<%= @offering.organizer.id %>
+</p>
+
+<p>
+<strong>Text:</strong>
+<%= @offering.attendee.id %>
+</p>
+
+<p>
+<strong>Text:</strong>
+<%= @offering.status %>
+</p>
+
+<div style='width:100%; height:100%;'>  
+  <div id="map" style='width: 800px; height: 400px;'></div>  
+</div>  
+
+<script type="text/javascript">  
+handler = Gmaps.build('Google');
+
+handler.buildMap({ provider: {}, internal: {id: 'map'}, map_options: {}}, function(){  
+  markers = handler.addMarkers([  
+    {  
+      "lat": <%= @offering.latitude %>,  
+      "lng": <%= @offering.longitude %>,  
+      "picture": {  
+        "width":  32,  
+        "height": 32
+      },  
+      "infowindow": "<%= @offering.address %>"
+    }  
+  ]);  
+  handler.bounds.extendWith(markers);  
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(17);
+});  
+</script>
+
+<%= link_to '<button type="button" class="btnBack">Book</button>'.html_safe, offerings_booking_path(@offering) %>

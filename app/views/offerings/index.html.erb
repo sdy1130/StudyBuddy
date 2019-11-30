@@ -1,0 +1,14 @@
+<table>
+<tr>
+  <th>Title</th>
+  <th>Text</th>
+  <th colspan="2"></th>
+</tr>
+
+<% @offerings.each do |offering| %>
+  <tr>
+    <td><%= offering.organizer.id %></td>
+    <td><%= offering.attendee.id %></td>
+  </tr>
+<% end %>
+</table>

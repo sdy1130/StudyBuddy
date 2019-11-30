@@ -9,6 +9,9 @@ class User < ApplicationRecord
     has_and_belongs_to_many :repos
     has_and_belongs_to_many :courses
 
+    has_many :organizers, :class_name => "Offering", :foreign_key => "organizer"
+    has_many :attendees, :class_name => "Offering", :foreign_key => "attendee"
+
     # attr_accessor :password //This will prevent the password from being saved
 
     # validates :name, :presence => true, :uniqueness => true, :length => { :in => 3..20 }

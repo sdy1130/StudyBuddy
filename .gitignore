@@ -71,3 +71,5 @@ private/uploads/*
 
 # Mac
 .DS_Store
+
+/config/master.key

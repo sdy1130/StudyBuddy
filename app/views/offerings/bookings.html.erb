@@ -1,0 +1,38 @@
+<p>
+RANDOM
+</p>
+<p>
+RANDOM
+</p>
+<p>
+RANDOM
+</p>
+<p>
+My Tutoring
+</p>
+<table>
+<% @offerings.each do |offering| %>
+    <% if current_user && current_user.id == offering.organized.id && offering.status == "Free" %>
+    <tr>
+    <td><%= offering.organizer.id %></td>
+    <td><%= offering.attendee.id %></td>
+    </tr>
+    <% end %>
+<% end %>
+</table>
+
+<p>
+My Booking
+</p>
+
+<table>
+
+<% @offerings.each do |offering| %>
+    <% if current_user && current_user.id == offering.attendee.id && offering.status == "Booked" %>
+    <tr>
+        <td><%= offering.organizer.id %></td>
+        <td><%= offering.attendee.id %></td>
+    </tr>
+    <% end %>
+<% end %>
+</table>

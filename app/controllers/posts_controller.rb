@@ -19,7 +19,13 @@ class PostsController < ApplicationController
         post_params_2[:user_id] = current_user.id
 
         @post = @course.posts.create(post_params_2)
-        redirect_to course_post_path(@course, @post)
+
+        # Check if creating the post was successful
+        if @post.id
+            redirect_to course_post_path(@course, @post)
+        else
+            render 'new'
+        end
     end
 
     def update

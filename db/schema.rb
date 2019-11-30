@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_204723) do
+ActiveRecord::Schema.define(version: 2019_11_29_061318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,23 @@ ActiveRecord::Schema.define(version: 2019_11_25_204723) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "repo_id"
     t.index ["repo_id"], name: "index_items_on_repo_id"
+  end
+
+  create_table "offerings", force: :cascade do |t|
+    t.string "course_id"
+    t.float "cost", default: 0.0
+    t.datetime "startTime"
+    t.datetime "endTime"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "status", default: "Free"
+    t.bigint "organizer_id"
+    t.bigint "attendee_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["attendee_id"], name: "index_offerings_on_attendee_id"
+    t.index ["organizer_id"], name: "index_offerings_on_organizer_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -105,4 +122,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_204723) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "offerings", "users", column: "attendee_id"
+  add_foreign_key "offerings", "users", column: "organizer_id"
 end
