@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'pages/about'
   
-  get 'offerings/booking(/:id)', to: 'offerings#book', :as => 'offerings_booking'
+  post 'offerings/booking(/:id)', to: 'offerings#book', :as => 'offerings_booking'
   get 'offerings/bookings'
 
   resources :offerings
-  
+  resources :billings
+
   devise_for :users
   
   resources :courses do

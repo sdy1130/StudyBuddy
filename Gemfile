@@ -65,3 +65,4 @@ gem 'autoprefixer-rails'
 
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'stripe'

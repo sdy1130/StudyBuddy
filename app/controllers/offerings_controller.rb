@@ -44,8 +44,6 @@ class OfferingsController < ApplicationController
     def book
         @offering = Offering.find(params[:id])
 
-        # Stripe payment
-
         # Book the offering
         @offering.update_attribute(:attendee, User.find(current_user.id))
         @offering.update_attribute(:status, "Booked")
