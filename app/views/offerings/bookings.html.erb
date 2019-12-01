@@ -21,6 +21,7 @@ My Offerings
 <tr>
 <th>Organizer</th>
 <th>Attendee</th>
+<th>Course</th>
 <th>Start Time</th>
 <th>End Time</th>
 <th>Where</th>
@@ -37,6 +38,7 @@ My Offerings
         <% else %>
             <td><%= link_to "#{User.find(offering.attendee.id).user_name}", users_profile_path(User.find(offering.attendee.id)), :class => "post_links"%></td>
         <% end %>
+        <td><%= Course.find(offering.course_id).code %> - <%= Course.find(offering.course_id).name %></td>
         <td><%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").day %>
         <%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").min %></td>
         <td><%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").day %>
@@ -57,6 +59,7 @@ My Bookings
 <tr>
 <th>Organizer</th>
 <th>Attendee</th>
+<th>Course</th>
 <th>When</th>
 <th>Where</th>
 <th>Status</th>
@@ -67,6 +70,7 @@ My Bookings
         <tr>
             <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%></td>
             <td><%= link_to "#{User.find(offering.attendee.id).user_name}", users_profile_path(User.find(offering.attendee.id)), :class => "post_links"%></td>
+            <td><%= Course.find(offering.course_id).code %> - <%= Course.find(offering.course_id).name %></td>
             <td><%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").day %>
             <%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").min %></td>
             <td><%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").day %>
