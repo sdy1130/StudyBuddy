@@ -18,8 +18,17 @@ class OfferingsController < ApplicationController
         offering_params_2 = {}
         offering_params_2[:course_id] = offering_params[:course_id]
         offering_params_2[:cost] = offering_params[:cost]
-        offering_params_2[:startTime] = offering_params[:startTime]
-        offering_params_2[:endTime] = offering_params[:endTime]
+        offering_params_2[:description] = offering_params[:description]
+        offering_params_2["startTime(1i)"] = offering_params["startTime(1i)"]
+        offering_params_2["startTime(2i)"] = offering_params["startTime(2i)"]
+        offering_params_2["startTime(3i)"] = offering_params["startTime(3i)"]
+        offering_params_2["startTime(4i)"] = offering_params["startTime(4i)"]
+        offering_params_2["startTime(5i)"] = offering_params["startTime(5i)"]
+        offering_params_2["endTime(1i)"] = offering_params["endTime(1i)"]
+        offering_params_2["endTime(2i)"] = offering_params["endTime(2i)"]
+        offering_params_2["endTime(3i)"] = offering_params["endTime(3i)"]
+        offering_params_2["endTime(4i)"] = offering_params["endTime(4i)"]
+        offering_params_2["endTime(5i)"] = offering_params["endTime(5i)"]
         offering_params_2[:address] = address
         offering_params_2[:latitude] = results.first.coordinates[0]
         offering_params_2[:longitude] = results.first.coordinates[1]
@@ -39,6 +48,8 @@ class OfferingsController < ApplicationController
 
     def show
         @offering = Offering.find(params[:id])
+        @offering_startTime = @offering.startTime.in_time_zone("Eastern Time (US & Canada)")
+        @offering_endTime = @offering.endTime.in_time_zone("Eastern Time (US & Canada)")
     end
 
     def book
@@ -57,7 +68,7 @@ class OfferingsController < ApplicationController
 
     private
         def offering_params
-            params.require(:offering).permit(:course_id, :cost, :startTime, :endTime, :street, :city, :province, :country)
+            params.require(:offering).permit(:description, :course_id, :cost, :startTime, :endTime, :street, :city, :province, :country)
         end
 
 end

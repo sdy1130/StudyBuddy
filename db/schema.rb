@@ -60,12 +60,13 @@ ActiveRecord::Schema.define(version: 2019_11_29_061318) do
 
   create_table "offerings", force: :cascade do |t|
     t.string "course_id"
+    t.string "description"
     t.float "cost", default: 0.0
     t.datetime "startTime"
     t.datetime "endTime"
     t.string "address"
-    t.float "latitude"
-    t.float "longitude"
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.string "status", default: "Free"
     t.bigint "organizer_id"
     t.bigint "attendee_id"

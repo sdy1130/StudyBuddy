@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'offerings/bookings'
 
   resources :offerings
-  resources :billings
 
   devise_for :users
   

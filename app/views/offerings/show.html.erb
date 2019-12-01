@@ -1,54 +1,82 @@
 <p>
-"asdasfasgfa"
+PLACEHOLDER
 </p>
 <p>
-"asdasfasgfa"
+PLACEHOLDER
 </p>
 <p>
-"asdasfasgfa"
+PLACEHOLDER
 </p>
 <p>
-"asdasfasgfa"
-
+PLACEHOLDER
 </p>
-
 <p>
-<strong>Title:</strong>
-<%= @offering.cost %>
+PLACEHOLDER
 </p>
 
-<p>
-<strong>Text:</strong>
-<%= @offering.organizer.id %>
 </p>
 
 <p>
-<strong>Text:</strong>
-<%= @offering.attendee.id %>
+  <strong>Course:</strong>
+  <%= link_to "#{Course.find(@offering.course_id).code} - #{Course.find(@offering.course_id).name}", course_path(Course.find(@offering.course_id)), :class => "post_links"%>
 </p>
 
 <p>
-<strong>Text:</strong>
+  <strong>Organizer:</strong>
+  <%= link_to "#{User.find(@offering.organizer.id).user_name}", users_profile_path(User.find(@offering.organizer.id)), :class => "post_links"%>
+</p>
+
+<p>
+  <strong>Attendee:</strong>
+  <%= link_to "#{User.find(@offering.organizer.id).user_name}", users_profile_path(User.find(@offering.organizer.id)), :class => "post_links"%>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  $<%= @offering.cost %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @offering_startTime.year %>-<%= @offering_startTime.month %>-<%= @offering_startTime.day %>
+  <%= @offering_startTime.hour %>:<%= @offering_startTime.min %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @offering_endTime.year %>-<%= @offering_endTime.month %>-<%= @offering_endTime.day %>
+  <%= @offering_endTime.hour %>:<%= @offering_endTime.min %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @offering.description %>
+</p>
+
+<p>
+<strong>Status:</strong>
 <%= @offering.status %>
 </p>
 
-<%= form_tag offerings_booking_path(@offering) do %>
-    <article>
-    <% if flash[:error].present? %>
-    <div id="error_explanation">
-    <p><%= flash[:error] %></p>
-    </div>
-    <% end %>
-    <label class="amount">
-    <span>Amount: <%= @offering.cost %></span>
-    </label>
-    </article>
-    
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.application.credentials.stripe_publishable_key %>"
-    data-description="Tutoring Payment"
-    data-amount="<%= @offering.cost * 100 %>"
-    data-locale="auto"></script>
+<% if current_user.id != @offering.organizer.id &&  @offering.status == "Free"%>
+  <%= form_tag offerings_booking_path(@offering) do %>
+      <article>
+      <% if flash[:error].present? %>
+      <div id="error_explanation">
+      <p><%= flash[:error] %></p>
+      </div>
+      <% end %>
+      <label class="amount">
+      <span>Amount: <%= @offering.cost %></span>
+      </label>
+      </article>
+      
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.application.credentials.stripe_publishable_key %>"
+      data-description="Tutoring Payment"
+      data-amount="<%= @offering.cost * 100 %>"
+      data-locale="auto"></script>
+  <% end %>
 <% end %>
 
 <div style='width:100%; height:100%;'>  
@@ -75,5 +103,3 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}, map_options: {}}, functi
   handler.getMap().setZoom(17);
 });  
 </script>
-
-<%= link_to '<button type="button" class="btnBack">Book</button>'.html_safe, offerings_booking_path(@offering) %>

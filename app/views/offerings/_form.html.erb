@@ -1,16 +1,17 @@
 <%= form_with scope: :offering, url: offerings_path do |f| %>
-
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@offering.errors.count, "error") %> prohibited
-      this article from being saved:
-    </h2>
-    <ul>
-      <% @offering.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
+  <% if @offering.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@offering.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @offering.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <%= f.label "Course code and name: " %>
   <%= f.collection_select :course_id, Course.all, :id, lambda {|u| "#{u.code} - #{u.name}"}, {:prompt => "Please select course"} %><br>
@@ -43,7 +44,11 @@
   <%= f.text_field :country %>
   <br>
 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
   <%= f.submit :class=>"btnContact" %>
-  <%= link_to '<button type="button" class="btnBack">Back</button>'.html_safe, root_path %>
 
 <% end %>
