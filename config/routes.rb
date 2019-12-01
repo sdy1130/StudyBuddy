@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   post 'offerings/booking(/:id)', to: 'offerings#book', :as => 'offerings_booking'
   get 'offerings/bookings'
+  get 'offerings/booking/:id/cancel', to: 'offerings#cancel', :as => 'offerings_booking_cancel'
 
   resources :offerings
 

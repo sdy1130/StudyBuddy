@@ -12,8 +12,6 @@ class OfferingsController < ApplicationController
     def create
         address = [offering_params[:street], offering_params[:city], offering_params[:province], offering_params[:country]].compact.join(', ')
         results = Geocoder.search(address)
-        puts "Address: "
-        puts results.first.coordinates
 
         offering_params_2 = {}
         offering_params_2[:course_id] = offering_params[:course_id]
@@ -64,6 +62,59 @@ class OfferingsController < ApplicationController
 
     def bookings
         @offerings = Offering.all
+    end
+
+    def edit
+        @offering = Offering.find(params[:id])
+    end
+
+    def update
+        @offering = Offering.find(params[:id])
+        address = [offering_params[:street], offering_params[:city], offering_params[:province], offering_params[:country]].compact.join(', ')
+        results = Geocoder.search(address)
+
+        offering_params_2 = {}
+        offering_params_2[:course_id] = offering_params[:course_id]
+        offering_params_2[:cost] = offering_params[:cost]
+        offering_params_2[:description] = offering_params[:description]
+        offering_params_2["startTime(1i)"] = offering_params["startTime(1i)"]
+        offering_params_2["startTime(2i)"] = offering_params["startTime(2i)"]
+        offering_params_2["startTime(3i)"] = offering_params["startTime(3i)"]
+        offering_params_2["startTime(4i)"] = offering_params["startTime(4i)"]
+        offering_params_2["startTime(5i)"] = offering_params["startTime(5i)"]
+        offering_params_2["endTime(1i)"] = offering_params["endTime(1i)"]
+        offering_params_2["endTime(2i)"] = offering_params["endTime(2i)"]
+        offering_params_2["endTime(3i)"] = offering_params["endTime(3i)"]
+        offering_params_2["endTime(4i)"] = offering_params["endTime(4i)"]
+        offering_params_2["endTime(5i)"] = offering_params["endTime(5i)"]
+        offering_params_2[:address] = address
+        offering_params_2[:latitude] = results.first.coordinates[0]
+        offering_params_2[:longitude] = results.first.coordinates[1]
+        offering_params_2[:organizer] = User.find(current_user.id)
+        # For now set the attendee to yourself
+        # We can also add 'optional: true' for this foreign key in offerings model
+        offering_params_2[:attendee] = offering_params_2[:organizer]
+
+        if @offering.update(offering_params_2)
+            redirect_to @offering
+        else
+            render 'edit'
+        end
+    end
+
+    def destroy
+        @offering = Offering.find(params[:id])
+        @offering.destroy
+
+        redirect_to offerings_path
+    end
+
+    def cancel
+        @offering = Offering.find(params[:id])
+
+        @offering.update_attribute(:status, "Free")
+
+        redirect_to @offering
     end
 
     private

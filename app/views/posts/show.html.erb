@@ -21,8 +21,8 @@
 
     <div class ="edit_delete_container">
     <% if current_user && current_user.id == @post.user_id %>
-        <%= button_to "Edit Comment", edit_course_post_path(@course, @post), :method => "get", :class => "button post_button", :form_class => "login_buton_form" %>
-        <%= button_to "Delete Comment",course_post_path(@course, @post), :method => "delete", :data => { confirm: 'Are you sure?' }, :class => "button post_button", :form_class => "login_buton_form" %>
+        <%= button_to "Edit Post", edit_course_post_path(@course, @post), :method => "get", :class => "button post_button", :form_class => "login_buton_form" %>
+        <%= button_to "Delete Post",course_post_path(@course, @post), :method => "delete", :data => { confirm: 'Are you sure?' }, :class => "button post_button", :form_class => "login_buton_form" %>
     <% end %>
     </div>
 
@@ -68,12 +68,6 @@
         </div>
 
     </div>
-
-
-    <% end %>
-
-
-
-
+  <% end %>
   </div>
 

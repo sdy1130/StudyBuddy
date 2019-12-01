@@ -29,10 +29,10 @@ My Offerings
 </tr>
 
 <% @offerings.each do |offering| %>
-    <% if current_user && current_user.id == offering.organizer.id %>
+    <% if current_user && current_user.id == offering.organizer.id && Time.current.in_time_zone("Eastern Time (US & Canada)") <= offering.startTime.in_time_zone("Eastern Time (US & Canada)") %>
     <tr>
         <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%></td>
-        <% if offering.attendee.id == offering.organizer.id %>
+        <% if offering.status == "Free" %>
             <td> N/A </td>
         <% else %>
             <td><%= link_to "#{User.find(offering.attendee.id).user_name}", users_profile_path(User.find(offering.attendee.id)), :class => "post_links"%></td>
@@ -62,9 +62,8 @@ My Bookings
 <th>Status</th>
 <th colspan="2"></th>
 </tr>
-
     <% @offerings.each do |offering| %>
-        <% if current_user && current_user.id == offering.attendee.id && offering.status == "Booked" %>
+        <% if current_user && current_user.id == offering.attendee.id && offering.status == "Booked" && Time.current.in_time_zone("Eastern Time (US & Canada)") <= offering.startTime.in_time_zone("Eastern Time (US & Canada)") %>
         <tr>
             <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%></td>
             <td><%= link_to "#{User.find(offering.attendee.id).user_name}", users_profile_path(User.find(offering.attendee.id)), :class => "post_links"%></td>
