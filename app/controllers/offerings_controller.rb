@@ -12,6 +12,10 @@ class OfferingsController < ApplicationController
     def create
         address = [offering_params[:street], offering_params[:city], offering_params[:province], offering_params[:country]].compact.join(', ')
         results = Geocoder.search(address)
+        puts address
+        puts results.first.coordinates[0]
+        puts results.first.coordinates[1]
+
 
         offering_params_2 = {}
         offering_params_2[:course_id] = offering_params[:course_id]
