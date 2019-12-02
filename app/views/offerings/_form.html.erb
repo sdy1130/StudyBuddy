@@ -1,54 +1,70 @@
 <%= form_with scope: :offering, url: offerings_path do |f| %>
-  <% if @offering.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@offering.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @offering.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
+<% if @offering.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@offering.errors.count, "error") %> prohibited
+    this article from being saved:
+  </h2>
+  <ul>
+    <% @offering.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div id="offering">
+<h1>New Tutoring Offering</h1><br>
+
+
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.label "Course code and name: " %><br>
+        <%= f.collection_select :course_id, Course.all, :id, lambda {|u| "#{u.code} - #{u.name}"}, {:prompt => "Please select course"} , class: "form-control"%><br>
+
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label "Cost ($)" %><br>
+        <%= f.number_field :cost, min: 0, step: 0.01 , class: "form-control"%>
+      </div>
     </div>
-  <% end %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.label "Start time:" %><br>
+        <%= f.datetime_select :startTime, class: "form-control"%>
 
-  <%= f.label "Course code and name: " %>
-  <%= f.collection_select :course_id, Course.all, :id, lambda {|u| "#{u.code} - #{u.name}"}, {:prompt => "Please select course"} %><br>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label "End time:" %> <br>
+        <%= f.datetime_select :endTime, class: "form-control" %>
+      </div>
+    </div>
 
-  <%= f.label "Cost ($)" %>
-  <%= f.number_field :cost, min: 0, step: 0.01 %>
-  <br>
-
-  <%= f.label "Start time:" %><br>
-  <%= f.datetime_select :startTime %>
-  <br>
-
-  <%= f.label "End time:" %> <br>
-  <%= f.datetime_select :endTime %>
-  <br>
-
-  <%= f.label "Street address:" %>
-  <%= f.text_field :street %>
-  <br>
-
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-  <br>
-
-  <%= f.label :province %>
-  <%= f.text_field :province %>
-  <br>
-
-  <%= f.label :country %>
-  <%= f.text_field :country %>
-  <br>
-
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
-
-  <%= f.submit :class=>"btnContact" %>
-
+    <div class="form-group">
+      <%= f.label "Street address:" %><br>
+      <%= f.text_field :street , class: "form-control"%>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.label :city %><br>
+        <%= f.text_field :city, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label :province %><br>
+        <%= f.text_field :province, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-2">
+        <%= f.label :country %><br>
+        <%= f.text_field :country, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, class: "form-control"  %>
+    </div>
+    <%= link_to 'Back', root_path,:class=>"btn btn-secondary" %>
+    <%= f.submit :class=>"btn btn-primary",:id=>"submit" %>
+  </form>
+</div>
 <% end %>

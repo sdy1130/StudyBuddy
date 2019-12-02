@@ -2,3 +2,21 @@
     width: 600px;
     height: 400px;
 }
+
+th, td {
+    border-bottom: 1px solid #ddd;
+  }
+
+#offering{
+    top: 10%;
+    width: 60%;
+    position: absolute;
+    left: 20%;
+    background-color: white;
+    padding: 5px;
+}
+
+#submit{
+    position: absolute;
+    left: 88%;
+}
