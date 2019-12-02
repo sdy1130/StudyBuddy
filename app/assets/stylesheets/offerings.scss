@@ -9,30 +9,37 @@ th, td {
 
 #offering{
     top: 10%;
-    width: 60%;
+    width: 90%;
     position: absolute;
-    left: 20%;
+    left: 5%;
     background-color: white;
     padding: 5px;
+    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0 2em;
 }
 
 #submit{
-    position: absolute;
-    left: 88%;
+    float: right;
 }
 
 #delete{
-    position: absolute;
-    left: 93%;
+    float: right;
 }
 
 #my_offering{
     width: 100%;
+    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0 2em;
 
 }
 
 #my_booking{
     width: 100%;
+    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0 2em;
 }
 
 .tables-container{
@@ -42,9 +49,9 @@ th, td {
 }
 
 .table-container{
-    width: 60%;
+    width: 90%;
     position: relative;
-    left: 20%;
+    left: 5%;
     background-color: white;
     padding: 5px;
 }
