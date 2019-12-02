@@ -1,84 +1,79 @@
-<p>
-PLACEHOLDER
-</p>
-<p>
-PLACEHOLDER
-</p>
-<p>
-PLACEHOLDER
-</p>
-<p>
-PLACEHOLDER
-</p>
-<p>
-PLACEHOLDER
-</p>
+<div class="tables-container">
 
-<p>
-My Offerings
-</p>
-<table>
-<tr>
-<th>Organizer</th>
-<th>Attendee</th>
-<th>Course</th>
-<th>Start Time</th>
-<th>End Time</th>
-<th>Where</th>
-<th>Status</th>
-<th colspan="2"></th>
-</tr>
+    <div class="table-container">
+        <h1>My Offerings</h1>
+        <table id="my_offering">
+            <tr>
+                <th>Organizer</th>
+                <th>Attendee</th>
+                <th>Course</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Where</th>
+                <th>Status</th>
+                <th colspan="2"></th>
+            </tr>
 
-<% @offerings.each do |offering| %>
-    <% if current_user && current_user.id == offering.organizer.id && Time.current.in_time_zone("Eastern Time (US & Canada)") <= offering.startTime.in_time_zone("Eastern Time (US & Canada)") %>
-    <tr>
-        <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%></td>
-        <% if offering.status == "Free" %>
-            <td> N/A </td>
-        <% else %>
-            <td><%= link_to "#{User.find(offering.attendee.id).user_name}", users_profile_path(User.find(offering.attendee.id)), :class => "post_links"%></td>
-        <% end %>
-        <td><%= Course.find(offering.course_id).code %> - <%= Course.find(offering.course_id).name %></td>
-        <td><%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").day %>
-        <%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").min %></td>
-        <td><%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").day %>
-        <%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").min %></td>
-        <td><%= offering.address %></td>
-        <td><%= offering.status %></td>
-        <td><%= link_to "Show", offering_path(offering.id), :class => "post_link"%></td>
-    </tr>
-    <% end %>
-<% end %>
-</table>
+            <% @offerings.each do |offering| %>
+            <% if current_user && current_user.id == offering.organizer.id && Time.current.in_time_zone("Eastern Time (US & Canada)") <= offering.startTime.in_time_zone("Eastern Time (US & Canada)") %>
+            <tr>
+                <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%>
+                </td>
+                <% if offering.status == "Free" %>
+                <td> N/A </td>
+                <% else %>
+                <td><%= link_to "#{User.find(offering.attendee.id).user_name}", users_profile_path(User.find(offering.attendee.id)), :class => "post_links"%>
+                </td>
+                <% end %>
+                <td><%= Course.find(offering.course_id).code %> - <%= Course.find(offering.course_id).name %></td>
+                <td><%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").day %>
+                    <%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").min %>
+                </td>
+                <td><%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").day %>
+                    <%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").min %>
+                </td>
+                <td><%= offering.address %></td>
+                <td><%= offering.status %></td>
+                <td><%= link_to "Show", offering_path(offering.id), :class => "post_link"%></td>
+            </tr>
+            <% end %>
+            <% end %>
 
-<p>
-My Bookings
-</p>
-
-<table>
-<tr>
-<th>Organizer</th>
-<th>Attendee</th>
-<th>Course</th>
-<th>When</th>
-<th>Where</th>
-<th>Status</th>
-<th colspan="2"></th>
-</tr>
-    <% @offerings.each do |offering| %>
+            
+        </table>
+    </div><br>
+    <div class="table-container">
+            <h1 >My Bookings</h1>
+    <table id="my_booking">
+        <tr>
+            <th>Organizer</th>
+            <th>Attendee</th>
+            <th>Course</th>
+            <th>When</th>
+            <th>Where</th>
+            <th>Status</th>
+            <th colspan="2"></th>
+        </tr>
+        <% @offerings.each do |offering| %>
         <% if current_user && current_user.id == offering.attendee.id && offering.status == "Booked" && Time.current.in_time_zone("Eastern Time (US & Canada)") <= offering.startTime.in_time_zone("Eastern Time (US & Canada)") %>
         <tr>
-            <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%></td>
-            <td><%= link_to "#{User.find(offering.attendee.id).user_name}", users_profile_path(User.find(offering.attendee.id)), :class => "post_links"%></td>
+            <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%>
+            </td>
+            <td><%= link_to "#{User.find(offering.attendee.id).user_name}", users_profile_path(User.find(offering.attendee.id)), :class => "post_links"%>
+            </td>
             <td><%= Course.find(offering.course_id).code %> - <%= Course.find(offering.course_id).name %></td>
             <td><%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").day %>
-            <%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").min %></td>
+                <%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").min %>
+            </td>
             <td><%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").day %>
-            <%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").min %></td>
+                <%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").min %>
+            </td>
             <td><%= offering.address %></td>
             <td><%= offering.status %></td>
             <td><%= link_to "Show", offering_path(offering.id), :class => "post_link"%></td>
         </tr>
         <% end %>
-    <% end %>
-</table>
+        <% end %>
+    </table>
+</div>
+</div>
