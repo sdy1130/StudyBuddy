@@ -19,7 +19,13 @@ class ReposController < ApplicationController
     end
 
     def edit
+        @courses = Course.all
+        @courseList = []
+        @courses.each do |e|
+            @courseList << e.code
+        end
         @repo = Repo.find(params[:id])
+
     end
 
     def create
