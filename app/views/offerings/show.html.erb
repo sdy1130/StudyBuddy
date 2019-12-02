@@ -1,20 +1,5 @@
-<p>
-PLACEHOLDER
-</p>
-<p>
-PLACEHOLDER
-</p>
-<p>
-PLACEHOLDER
-</p>
-<p>
-PLACEHOLDER
-</p>
-<p>
-PLACEHOLDER
-</p>
-
-</p>
+<div class="tables-container">
+<div class="table-container">
 
 <p>
   <strong>Course:</strong>
@@ -90,11 +75,11 @@ PLACEHOLDER
 
 <div style='width:100%; height:100%;'>  
   <div id="map" style='width: 800px; height: 400px;'></div>  
-</div>  
+</div>  <br>
 
 <% if current_user && current_user.id == @offering.organizer.id %>
-  <%= button_to "Edit Post", edit_offering_path(@offering), :method => "get", :class => "button post_button", :form_class => "login_buton_form" %>
-  <%= button_to "Delete Post", offering_path(@offering), :method => "delete", :data => { confirm: 'Are you sure?' }, :class => "button post_button", :form_class => "login_buton_form" %>
+  <%= link_to 'Edit', edit_offering_path(@offering),:class => "btn btn-secondary", :form_class => "login_buton_form"  %>
+  <%= link_to 'Delete', offering_path(@offering), method: "delete", :data => { confirm: 'Are you sure?' }, :class => "btn btn-primary", :id=>"delete",:form_class => "login_buton_form"  %>
 <% elsif current_user.id == @offering.attendee.id && @offering.status != "Free" %>
   <%= button_to "Cancel Booking", offerings_booking_cancel_path(@offering), :method => "get", :data => { confirm: 'Are you sure?' }, :class => "button post_button", :form_class => "login_buton_form" %>
 <% end %>
@@ -119,3 +104,5 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}, map_options: {}}, functi
   handler.getMap().setZoom(17);
 });  
 </script>
+</div>
+</div>
