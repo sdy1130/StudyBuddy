@@ -64,12 +64,11 @@
     <div class = "course_right_info_container">
     <h4 class = "course_title">Public Repos</h4>
     <div class = "line_break"> </div>
-    <% if @course.repo.any?%>
-    <% @course.repo.each do |r| %>
+    <% if @course.repos.any?%>
+    <% @course.repos.each do |r| %>
     <div>
         <div class = "post_header">
-          <div><h4 class = "course_title"><%= r.title %> repo</h4></div>
-          <div>Posted by user: <%= r.user_id %></div>
+          <%= link_to r.name, r %>
         </div>
         <div class = "line_break"> </div>
     </div>

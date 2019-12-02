@@ -1,5 +1,5 @@
 class ReposController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create]
+    before_action :authenticate_user!, only: [:new, :create, :join_action]
 
     def index
         @repos = Repo.all
@@ -27,6 +27,8 @@ class ReposController < ApplicationController
         if @repo.save
             #adding the user to repo's user table
             @repo.users << current_user
+            @course = Course.find_by(code: (params[:repo][:course_id]))
+            @course.repos << @repo
             redirect_to @repo
         else
             render 'new'
@@ -59,6 +61,17 @@ class ReposController < ApplicationController
         else
             @repos = Repo.all
             render "index"
+        end
+    end
+
+    def join_action
+        if (user_signed_in?)
+            @repo = Repo.find(params[:repo_id])
+            unless (@repo.users.include?(current_user))
+                @repo.users << current_user
+                @users = User.all
+                redirect_to @repo
+            end
         end
     end
 

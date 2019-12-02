@@ -4,10 +4,12 @@
       <p>
         <strong>
           <font size=6em><%= @repo.name %></font>
+          
         </strong>
 
       </p>
     </div>
+    <p><font size=4em><%= link_to @repo.courses[0].code, @repo.courses[0] %></font></p>
     <p>
       <strong>Description:</strong>
       <%= @repo.description %>
@@ -45,6 +47,17 @@
       <div class="repo_right_sub_container">
           <%= render 'items/form' %>
       </div>
+<div>
+
+  <% if !@repo.users.include?(current_user)%>
+      <div class = "back_button_container">
+      <%= button_to 'Join', repo_join_action_path(@repo), method: :post %>
+      </div>
+  <% else %>
+    <p> You are a member of this repository. </p>
+  <% end %>
+
+</div>
     </div>
 </div>
   </div>

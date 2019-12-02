@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
     # Changed to many to many relationship
     # has_many :repos
-    has_and_belongs_to_many :repo
+    has_and_belongs_to_many :repos
     has_many :posts
     has_and_belongs_to_many :users
 
