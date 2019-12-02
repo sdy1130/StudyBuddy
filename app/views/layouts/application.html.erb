@@ -34,6 +34,7 @@
                     <span class="sr-only">(current)</span>
                   </a>
             </li>
+
             <% if current_user %>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,12 +47,23 @@
             </ul>
             </li>
             <% end %>
+
+
+
           <li>
           <a class="nav-link" href=<%=repos_path%>>Repos</a>
           </li>
-            <li class="nav-item">
-              <a class="nav-link" href=<%=pages_about_path%>>About</a>
-            </li>
+
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          About <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li ><%= link_to "About", pages_about_path,:class => "dropdown-item" %></li>
+            <li><%= link_to "Terms and Conditions", pages_terms_path,:class => "dropdown-item" %></li>
+            <li><%= link_to "Privacy Policy", pages_privacy_path,:class => "dropdown-item" %></li>
+          </ul>
+          </li>
 
             <% if current_user %>
               <li class="nav-item">

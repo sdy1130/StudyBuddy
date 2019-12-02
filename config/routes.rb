@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'users/profile'
   root to: 'pages#home'
   get 'pages/about'
+  get 'pages/terms'
+  get 'pages/privacy'
   
   post 'offerings/booking(/:id)', to: 'offerings#book', :as => 'offerings_booking'
   get 'offerings/bookings'

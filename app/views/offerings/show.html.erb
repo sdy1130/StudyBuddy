@@ -81,7 +81,7 @@
   <%= link_to 'Edit', edit_offering_path(@offering),:class => "btn btn-secondary", :form_class => "login_buton_form"  %>
   <%= link_to 'Delete', offering_path(@offering), method: "delete", :data => { confirm: 'Are you sure?' }, :class => "btn btn-primary", :id=>"delete",:form_class => "login_buton_form"  %>
 <% elsif current_user.id == @offering.attendee.id && @offering.status != "Free" %>
-  <%= button_to "Cancel Booking", offerings_booking_cancel_path(@offering), :method => "get", :data => { confirm: 'Are you sure?' }, :class => "button post_button", :form_class => "login_buton_form" %>
+  <%= link_to 'Cancel Booking', offerings_booking_cancel_path(@offering), :method => "get",:class => "btn btn-secondary", :form_class => "login_buton_form"  %>
 <% end %>
 
 <script type="text/javascript">  
