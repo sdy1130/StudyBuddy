@@ -1,3 +1,4 @@
+<div class="container1">
 <div id="repo">
   <div id="repo_body">
     <div id="repo_name">
@@ -19,8 +20,10 @@
       <strong>Description:</strong>
       <%= @repo.description %>
     </p>
-  </div>
 
+
+  </div>
+    
   <% if !@repo.users.include?(current_user)%>
   <%= link_to '<button type="button" class="btn btn-primary" id="repos">Join</button>'.html_safe, repo_join_action_path(@repo), method: "post" %>
   <% else %>
@@ -48,25 +51,11 @@
     <% end %>
   </table>
 
-</div>
 
-<div class="repo_page">
-  <div class="repo_page_right_container">
-    <div class="repo_right_sub_container">
-      <%= render 'items/form' %>
-    </div>
-    <div>
+</div><br>
 
-      <% if !@repo.users.include?(current_user)%>
-      <div class="back_button_container">
-        <%= button_to 'Join', repo_join_action_path(@repo), method: :post %>
-      </div>
-      <% else %>
-      <p> You are a member of this repository. </p>
-      <% end %>
-
-    </div>
-  </div>
-</div>
+<div id ="upload">
+<h2>Upload File</h2></br>
+<%= render 'items/form' %>
 </div>
 </div>
