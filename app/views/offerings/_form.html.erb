@@ -20,10 +20,15 @@
 
   <form>
     <div class="form-row">
+
+      <div class="form-group col-md-12">
+        <strong> <%= f.label "title:" %></strong><br>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+
       <div class="form-group col-md-6">
         <strong><%= f.label "Course code and name: " %> </strong><br>
         <%= f.collection_select :course_id, Course.all, :id, lambda {|u| "#{u.code} - #{u.name}"}, {:prompt => "Please select course"} , class: "form-control"%><br>
-
       </div>
       <div class="form-group col-md-6">
         <strong><%= f.label "Cost ($)" %></strong><br>

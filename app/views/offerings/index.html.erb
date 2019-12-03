@@ -6,6 +6,7 @@
 <table id="offering">
   <tr>
     <th>Organizer</th>
+    <th>Title</th>
     <th>Courses</th>
     <th>Start Time</th>
     <th>End Time</th>
@@ -20,11 +21,11 @@
       <tbody id="row">
         <tr>
           <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%></td>
+          <td><%= offering.title%></td>
           <td><%= Course.find(offering.course_id).code %> - <%= Course.find(offering.course_id).name %></td>
           <td><%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").day %>
           <%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").min %></td>
           <td><%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").day %>
-          <%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").hour %>:<%= offering.endTime.in_time_zone("Eastern Time (US & Canada)").min %></td>
           <td><%= offering.address %></td>
           <td>$<%= offering.cost %></td>
           <td><%= offering.status %></td>

@@ -18,6 +18,7 @@ class OfferingsController < ApplicationController
 
 
         offering_params_2 = {}
+        offering_params_2[:title] = offering_params[:title]
         offering_params_2[:course_id] = offering_params[:course_id]
         offering_params_2[:cost] = offering_params[:cost]
         offering_params_2[:description] = offering_params[:description]
@@ -129,7 +130,7 @@ class OfferingsController < ApplicationController
 
     private
         def offering_params
-            params.require(:offering).permit(:description, :course_id, :cost, :startTime, :endTime, :street, :city, :province, :country)
+            params.require(:offering).permit(:title, :description, :course_id, :cost, :startTime, :endTime, :street, :city, :province, :country)
         end
 
 end

@@ -2,7 +2,7 @@
 <div class="table-container">
 
 <h1 class = "show_booking_title_spacing"> 
-  <%=Course.find(@offering.course_id).code %>: Tutoring 
+  <%=Course.find(@offering.course_id).code %>: <%=@offering.title%>
   </h1>
 <p>
   <strong>Course:</strong>
