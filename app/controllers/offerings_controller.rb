@@ -67,7 +67,7 @@ class OfferingsController < ApplicationController
         @offering.update_attribute(:status, "Booked")
 
         OfferingMailer.with(user: User.find(@offering.organizer_id), offering: @offering).booking_email.deliver_now
-        OfferingMailer.with(user: current_user.id, offering: @offering).booking_email.deliver_now
+        OfferingMailer.with(user: current_user, offering: @offering).booking_email.deliver_now
 
         redirect_to @offering
     end
