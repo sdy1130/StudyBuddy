@@ -36,10 +36,6 @@
             </li>
 
 
-          <li>
-          <a class="nav-link" href=<%=repos_path%>>Repos</a>
-          </li>
-
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           About<b class="caret"></b>
@@ -48,6 +44,10 @@
             <li ><%= link_to "About Us", pages_about_path,:class => "dropdown-item" %></li>
             <li><%= link_to "Terms of Use", pages_terms_path,:class => "dropdown-item" %></li>
           </ul>
+          </li>
+
+          <li>
+          <a class="nav-link" href=<%=repos_path%>>Repos</a>
           </li>
 
             <% if current_user %>
