@@ -10,6 +10,7 @@ require("bootstrap/dist/js/bootstrap")
 
 import 'bootstrap'
 import './src/application.scss'
+import "../trix-editor-overrides"
 
 
 

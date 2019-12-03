@@ -1,14 +1,23 @@
 class ItemsController < ApplicationController
     def create
         @repo = Repo.find(params[:repo_id])
+
+        # Hack for active storage
+        item_params_2 = item_params
+        file = item_params[:url]
+        filename = item_params[:url].original_filename
+        item_params_2[:file] = file
+        item_params_2[:url] = filename
+
         upload_file
-        params[:item][:url] = params[:item][:url].original_filename
-        @item = @repo.items.create(item_params)
+        # params[:item][:url] = params[:item][:url].original_filename
+
+        @item = @repo.items.create(item_params_2)
         redirect_to repo_path(@repo)
     end
 
     def show
-        @repo = Course.find(params[:repo_id])
+        @repo = Repo.find(params[:repo_id])
         @item = @repo.items.find(params[:id])
     end
 

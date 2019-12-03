@@ -32,7 +32,7 @@
   <table id="repos">
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <th>Show</th>
       <th>Download</th>
       <th>Delete</th>
     </tr>
@@ -41,7 +41,7 @@
     <% if item.name != nil %>
     <tr>
       <td><%= item.name %></td>
-      <td><%= item.description %></td>
+      <td><%= link_to 'Show', repo_item_path(@repo, item) %></td>
       <td><%= link_to 'Download', repo_item_download_file_path(@repo, item) %></td>
       <td><%= link_to 'Destroy item', [item.repo, item],
                     method: :delete,

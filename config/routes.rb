@@ -23,7 +23,6 @@ Rails.application.routes.draw do
   get 'repos/search' => 'repos#search', :as => 'search_repo'
   post'courses/join_action', :as => 'join_course'
   
-  
   resources :repos do
     resources :items do
       get :download_file
