@@ -1,3 +1,9 @@
+
+<div id="pdf">
+<% if @item.file.attached? %>
+    <iframe src="<%= (url_for(@item.file)) %>" width="100%" height="680" style="border: none;"> </iframe>
+<%end%>
+
 <p>
     <strong>Name:</strong>
     <%= @item.name %>
@@ -13,13 +19,8 @@
     <%= @item.url %>
 </p>
 
-<%= link_to 'Download FILE', repo_item_download_file_path(@repo, @item) %>
 
-<p>
-  <%= link_to 'Delete item', [@item.repo, @item],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
-<% if @item.file.attached? %>
-    <iframe src="<%= (url_for(@item.file)) %>" width="100%" height="680" style="border: none;"> </iframe>
-<%end%>
+<%= link_to '<button type="button" class="btn btn-primary">Download FILE</button>'.html_safe, repo_item_download_file_path(@repo, @item) %>
+<%= link_to '<button type="button" class="btn btn-secondary">Back</button>'.html_safe, repo_path(@repo) %>
+
+</div>

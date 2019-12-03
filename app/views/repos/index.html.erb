@@ -1,8 +1,6 @@
-
-<h1>Listing Repos</h1>
-
+<div id="repoIndex">
 <div id="search_bar_repo">
-<%= form_tag(search_repo_path, method: :get) do %>
+<%= form_tag(search_repo_path, method: :get,id:"repos") do %>
   <%= text_field_tag(:search, params[:search], placeholder: 'Enter Repo Name', id: 'input_repo')%>
   <%=submit_tag('Search', id: 'submit_repo') %>
 <% end %>
@@ -29,3 +27,4 @@
   <% end %>
 </table>
 
+</div>
