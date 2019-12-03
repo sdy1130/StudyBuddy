@@ -1,6 +1,8 @@
+<div>
 <div class = "application_background_color offerings_page">
 <div class = "table-container ">
 <h1 >Offerings</h1>
+<input id="input" type="text" placeholder="Search for course, tutor, availability, etc..." style="width: 800px;">
 <table id="offering">
   <tr>
     <th>Organizer</th>
@@ -9,13 +11,14 @@
     <th>End Time</th>
     <th>Address</th>
     <th>Cost</th>
-    <th>Status</th>
+    <th>Availability</th>
     <th colspan="2"></th>
   </tr>
 
   <% @offerings.order(:created_at).reverse.each do |offering| %>
     <% if current_user && Time.current.in_time_zone("Eastern Time (US & Canada)") <= offering.startTime.in_time_zone("Eastern Time (US & Canada)") %>
-      <tr>
+      <tbody id="row">
+        <tr>
           <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%></td>
           <td><%= Course.find(offering.course_id).code %> - <%= Course.find(offering.course_id).name %></td>
           <td><%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").year %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").month %>-<%= offering.startTime.in_time_zone("Eastern Time (US & Canada)").day %>
@@ -26,10 +29,23 @@
           <td>$<%= offering.cost %></td>
           <td><%= offering.status %></td>
           <td><%= link_to "Show", offering_path(offering.id), :class => "post_link"%></td>
-      </tr>
+        </tr>
+      </tbody>
     <% end %>
   <% end %>
   </table>
 </div>
 </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#input").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#row tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
