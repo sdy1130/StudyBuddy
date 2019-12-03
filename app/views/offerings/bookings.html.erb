@@ -1,20 +1,22 @@
 <div class="tables-container">
 
     <div class="table-container">
-        <h1>My Offerings</h1>
-        <table id="my_offering">
+        <a data-toggle="collapse" href="#my_offering" role="button" aria-expanded="false" aria-controls="collapseExample" class = "collapse_toggle course_link">
+        <h1 >My Offerings</h1>
+        </a>
+        <table class = "collapse show" id="my_offering">
             <tr>
                 <th>Organizer</th>
                 <th>Attendee</th>
                 <th>Course</th>
                 <th>Start Time</th>
                 <th>End Time</th>
-                <th>Where</th>
+                <th>Location</th>
                 <th>Status</th>
                 <th colspan="2"></th>
             </tr>
 
-            <% @offerings.each do |offering| %>
+            <% @offerings.order(:created_at).reverse.each do |offering| %>
             <% if current_user && current_user.id == offering.organizer.id && Time.current.in_time_zone("Eastern Time (US & Canada)") <= offering.startTime.in_time_zone("Eastern Time (US & Canada)") %>
             <tr>
                 <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%>
@@ -43,18 +45,21 @@
         </table>
     </div><br>
     <div class="table-container">
-            <h1 >My Bookings</h1>
-    <table id="my_booking">
+    <a data-toggle="collapse" href="#my_booking" role="button" aria-expanded="false" aria-controls="collapseExample" class = "collapse_toggle course_link">
+        <h1 >My Bookings</h1>
+    </a>
+    <table  class ="collapse show" id="my_booking">
         <tr>
             <th>Organizer</th>
             <th>Attendee</th>
             <th>Course</th>
-            <th>When</th>
-            <th>Where</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Location</th>
             <th>Status</th>
             <th colspan="2"></th>
         </tr>
-        <% @offerings.each do |offering| %>
+        <% @offerings.order(:created_at).reverse.each do |offering| %>
         <% if current_user && current_user.id == offering.attendee.id && offering.status == "Booked" && Time.current.in_time_zone("Eastern Time (US & Canada)") <= offering.startTime.in_time_zone("Eastern Time (US & Canada)") %>
         <tr>
             <td><%= link_to "#{User.find(offering.organizer.id).user_name}", users_profile_path(User.find(offering.organizer.id)), :class => "post_links"%>

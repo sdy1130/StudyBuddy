@@ -20,10 +20,11 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
+      <a class="navbar-brand" href="#">Study Buddy</a>
         <% if current_user %>
+          <strong><%= current_user.user_name%> </strong>
           <%= image_tag ("default-user.png"), :class => "nav_bar_image"%>
         <% end %>
-        <a class="navbar-brand" href="#">Study Buddy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,24 +36,6 @@
                   </a>
             </li>
 
-            <% if current_user %>
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Tutorings <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li ><%= link_to "All tutoring offerings", offerings_path,:class => "dropdown-item" %></li>
-              <li><%= link_to "Offer tutoring", new_offering_path,:class => "dropdown-item" %></li>
-              <li><%= link_to "My appointments", offerings_bookings_path,:class => "dropdown-item" %></li>
-            </ul>
-            </li>
-            <% end %>
-
-
-
-          <li>
-          <a class="nav-link" href=<%=repos_path%>>Repos</a>
-          </li>
 
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,12 +47,30 @@
           </ul>
           </li>
 
+          <li>
+          <a class="nav-link" href=<%=repos_path%>>Repos</a>
+          </li>
+
             <% if current_user %>
-              <li class="nav-item">
-                <a class="nav-link" href=<%=users_profile_path%>>Profile</a>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tutorings <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li ><%= link_to "All tutoring offerings", offerings_path,:class => "dropdown-item" %></li>
+                <li><%= link_to "Offer tutoring", new_offering_path,:class => "dropdown-item" %></li>
+              </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href=<%=destroy_user_session_path%> data-method="delete">logout</a>
+
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              User <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to "Appointments", offerings_bookings_path,:class => "dropdown-item" %></li>
+                <li ><%= link_to "Profile", users_profile_path,:class => "dropdown-item" %></li>
+                <li><%= link_to "Logout", destroy_user_session_path,:class => "dropdown-item", :method => "delete" %></li>
+              </ul>
               </li>
 
             <% else %>
