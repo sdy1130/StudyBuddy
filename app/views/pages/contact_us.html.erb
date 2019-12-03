@@ -1,0 +1,51 @@
+<!-- Page Content -->
+<section class="py-5 application_background_color">
+  <div class="container">
+    <h1 class="display-4">Contact us</h1>
+    <p class="lead">For additional information, please <a
+        href="mailto:zhihao.zhang@mail.utoronto.ca?subject=Mail from Study Buddy">Email Us</a> </p>
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <!-- Add font awesome icons -->
+
+        <div id="icons">
+        <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+        <span>   </span>
+        <a href="https://www.google.ca" class="fa fa-google"></a>
+        <span>   </span>
+        <a href="https://www.linkedin.com" class="fa fa-linkedin"></a>
+        <span>   </span>
+        <a href="https://www.instagram.com" class="fa fa-instagram"></a>
+        </div>
+
+        <p class="lead">Or find us at: 40 St George StToronto, Ontario, Canada, M5S 2E4 </p>
+        <div style='width:100%; height:100%;'>  
+            <div id="map" style='width: 800px; height: 400px;'></div>  
+        </div>  <br>
+  </div>
+
+</section>
+
+<script type="text/javascript">  
+    handler = Gmaps.build('Google');
+
+    handler.buildMap({ provider: {}, internal: {id: 'map'}, map_options: {}}, function(){  
+    markers = handler.addMarkers([  
+        {  
+        "lat": 43.65977015,  
+        "lng": -79.3972632658009,  
+        "picture": {  
+            "width":  32,  
+            "height": 32
+        },  
+        "infowindow": "<%= @offering.address %>"
+        }  
+    ]);  
+    handler.bounds.extendWith(markers);  
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(17);
+    });  
+</script>  
+
+
