@@ -1,3 +1,15 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#input").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#row tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
 <div>
 <div class = "application_background_color offerings_page">
 <div class = "table-container ">
@@ -38,15 +50,3 @@
 </div>
 </div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#input").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#row tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
