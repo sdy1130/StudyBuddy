@@ -7,10 +7,34 @@ th, td {
     border-bottom: 1px solid #ddd;
   }
 
+.offerings_page{
+    margin-top: 95px;
+}
+
+#offer_tutor{
+    width: 70%;
+    margin:auto;
+    background-color: white;
+    padding: 30px;
+    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0 2em;
+    padding: 30px 30px;
+    box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px; 
+}
+
 #offering{
     top: 10%;
     width: 90%;
-    position: absolute;
     left: 5%;
     background-color: white;
     padding: 5px;
@@ -19,9 +43,6 @@ th, td {
     border-spacing: 0 2em;
 }
 
-#submit{
-    float: right;
-}
 
 #delete{
     float: right;
@@ -54,4 +75,19 @@ th, td {
     left: 5%;
     background-color: white;
     padding: 5px;
+    padding: 30px 30px;
+    box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px; 
+}
+
+.show_booking_title_spacing{
+    margin-bottom: 20px;
 }

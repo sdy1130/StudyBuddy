@@ -16,7 +16,7 @@
 <%= link_to 'Download FILE', repo_item_download_file_path(@repo, @item) %>
 
 <p>
-  <%= link_to 'Destroy item', [@item.repo, @item],
+  <%= link_to 'Delete item', [@item.repo, @item],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>

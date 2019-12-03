@@ -1,6 +1,9 @@
 <div class="tables-container">
 <div class="table-container">
 
+<h1 class = "show_booking_title_spacing"> 
+  <%=Course.find(@offering.course_id).code %>: Tutoring 
+  </h1>
 <p>
   <strong>Course:</strong>
   <%= link_to "#{Course.find(@offering.course_id).code} - #{Course.find(@offering.course_id).name}", course_path(Course.find(@offering.course_id)), :class => "post_links"%>

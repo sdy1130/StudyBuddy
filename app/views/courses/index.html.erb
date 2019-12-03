@@ -12,7 +12,7 @@
       <strong>First Year courses </strong>
   </a>
   <div class ="line_break"></div>
-  <div class ="collapse" id = "collapse_first_year">
+  <div class ="collapse show" id = "collapse_first_year">
   <table id="courses">
     <% @courses.where('year = 1').each do |course| %>
       <tr>
@@ -29,7 +29,7 @@
       <strong>Second Year courses </strong>
   </a>
   <div class ="line_break"></div>
-  <div class ="collapse" id = "collapse_second_year">
+  <div class ="collapse show" id = "collapse_second_year">
   <table id="courses">
     <% @courses.where('year = 2').each do |course| %>
       <tr>
@@ -46,7 +46,7 @@
       <strong>Third Year courses </strong>
   </a>
   <div class ="line_break"></div>
-  <div class ="collapse" id = "collapse_third_year">
+  <div class ="collapse show" id = "collapse_third_year">
   <table id="courses">
     <% @courses.where('year = 3').each do |course| %>
       <tr>
@@ -63,7 +63,7 @@
       <strong>Fourth Year courses </strong>
   </a>
   <div class ="line_break"></div>
-  <div class ="collapse" id = "collapse_fourth_year">
+  <div class ="collapse show" id = "collapse_fourth_year">
   <table id="courses">
     <% @courses.where('year = 4').each do |course| %>
       <tr>
