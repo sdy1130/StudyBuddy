@@ -31,6 +31,10 @@ class OfferingsController < ApplicationController
         offering_params_2["endTime(3i)"] = offering_params["endTime(3i)"]
         offering_params_2["endTime(4i)"] = offering_params["endTime(4i)"]
         offering_params_2["endTime(5i)"] = offering_params["endTime(5i)"]
+        offering_params_2[:street] = offering_params[:street]
+        offering_params_2[:city] = offering_params[:city]
+        offering_params_2[:province] = offering_params[:province]
+        offering_params_2[:country] = offering_params[:country]
         offering_params_2[:address] = address
         offering_params_2[:latitude] = results.first.coordinates[0]
         offering_params_2[:longitude] = results.first.coordinates[1]

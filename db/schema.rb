@@ -92,6 +92,10 @@ ActiveRecord::Schema.define(version: 2019_12_02_232457) do
     t.float "cost", default: 0.0
     t.datetime "startTime"
     t.datetime "endTime"
+    t.string "street"
+    t.string "city"
+    t.string "province"
+    t.string "country"
     t.string "address"
     t.decimal "latitude"
     t.decimal "longitude"
