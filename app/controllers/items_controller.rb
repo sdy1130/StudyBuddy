@@ -7,6 +7,11 @@ class ItemsController < ApplicationController
         redirect_to repo_path(@repo)
     end
 
+    def show
+        @repo = Course.find(params[:repo_id])
+        @item = @repo.items.find(params[:id])
+    end
+
     def upload_file
         uploaded_file = params[:item][:url]
         File.open(Rails.root.join('private', 'uploads', 

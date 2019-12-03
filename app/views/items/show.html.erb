@@ -1,0 +1,22 @@
+<p>
+    <strong>Name:</strong>
+    <%= @item.name %>
+</p>
+
+<p>
+    <strong>Description:</strong>
+    <%= @item.description %>
+</p>
+
+<p>
+    <strong>URL:</strong>
+    <%= @item.url %>
+</p>
+
+<%= link_to 'Download FILE', repo_item_download_file_path(@repo, @item) %>
+
+<p>
+  <%= link_to 'Destroy item', [@item.repo, @item],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
