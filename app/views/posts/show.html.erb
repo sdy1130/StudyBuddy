@@ -31,7 +31,7 @@
     <%= form_with(model: [ @course, @post, @post.comments.build ], local: true) do |form| %>
     <p>
       Comment as: <%= current_user.user_name %><br>
-      <%= form.text_area :description ,class:"form-control",height:"58px" %>
+      <%= form.rich_text_area :description ,class:"form-control", height:"58px" %>
     </p>
     <div class = "create_post_container">
       <%= form.submit :class=>'button post_button'%>

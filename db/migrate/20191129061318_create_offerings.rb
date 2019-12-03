@@ -3,8 +3,6 @@ class CreateOfferings < ActiveRecord::Migration[6.0]
     create_table :offerings do |t|
       t.string :course_id
 
-      t.string :description
-
       t.float :cost, default: 0
 
       t.timestamp :startTime
