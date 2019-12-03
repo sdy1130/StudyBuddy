@@ -22,9 +22,9 @@
 
 #icons{
   width: 50%;
-  position: absolute;
   left: 25%;
-  text-align:center
+  text-align:center;
+  margin:auto;
 }
 
 .points{
@@ -217,4 +217,47 @@ height: 600;
 .fa-rss {
   background: #ff6600;
   color: white;
+}
+
+.faq_page {
+  margin-top: 80px;
+}
+
+.faq_page .faq_container{
+  padding: 30px 0;
+  width: 80%;
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px; 
+}
+
+.contact_page{
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.contact_page .contact_container{
+  padding: 30px;
+  width: 80%;
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px; 
 }

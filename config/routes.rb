@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'pages/terms'
   get 'pages/privacy'
+  get 'pages/contact'
+  get 'pages/faq'
+  get 'pages/site_map'
   
   post 'offerings/booking(/:id)', to: 'offerings#book', :as => 'offerings_booking'
   get 'offerings/bookings'
