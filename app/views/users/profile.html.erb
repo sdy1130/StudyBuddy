@@ -16,6 +16,8 @@
             <p><%= @user.email%></p>
             </div>
 
+
+
         </div>
         
         <% if (user_signed_in? && @user.id == current_user.id) %>
@@ -35,7 +37,7 @@
         <div>
             <div class = "post_header">
                 <a data-toggle="collapse" href="#collapse_posts" role="button" aria-expanded="false" aria-controls="collapseExample" class = "collapse_toggle course_link">
-                <h4>See Recent Posts</h5>
+                <h4>See Recent Course Posts</h5>
                 </a>
             </div>
         </div>

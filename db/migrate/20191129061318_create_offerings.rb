@@ -8,9 +8,13 @@ class CreateOfferings < ActiveRecord::Migration[6.0]
       t.timestamp :startTime
       t.timestamp :endTime
 
-      t.string :address, null: true
-      t.decimal :latitude, null: true
-      t.decimal :longitude, null: true
+      t.string :street
+      t.string :city
+      t.string :province
+      t.string :country
+      t.string :address
+      t.decimal :latitude
+      t.decimal :longitude
 
       t.string :status, :default => 'Free'
 

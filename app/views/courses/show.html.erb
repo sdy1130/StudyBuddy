@@ -70,14 +70,36 @@
         <div class = "post_header">
           <%= link_to r.name, r %>
         </div>
-        <div class = "line_break"> </div>
     </div>
     <% end %>
     <% else %>
       No public repos
     <% end %>
-  </div>
-  </div>
+
+    </div>
+    </div>
+
+      <div class = "course_right_sub_container">
+    <div class = "course_right_info_container">
+    <h4 class = "course_title">Open Tutor Offerings</h4>
+    <div class = "line_break"> </div>
+    <% if Offering.where(course_id: @course.id).any?%>
+    <% Offering.where(course_id: @course.id).each_with_index do |o,index| %>
+      <% if o.status == "Free"%>
+        <div>
+            <div class = "post_header">
+              <%= link_to "At #{o.address}", offering_path(o.id) %> 
+            </div>
+            
+        </div>
+      <% end %>
+    <% end %>
+    <% else %>
+      No open tutor offering
+    <% end %>
+    </div>
+    </div>
+
   </div>
   </div>
 
