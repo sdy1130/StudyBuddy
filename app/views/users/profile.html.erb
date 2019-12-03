@@ -2,7 +2,11 @@
 <div class = "profile_container">
 <div class = "profile_upper_container">
     <div class = "profile_info_container">
-        <%= image_tag ("default-user.png"), :class => "default_image"%>
+        <% if @user.file.attached? %>
+          <%= image_tag @user.file, :class => "user_image" %>
+        <% else %>
+          <%= image_tag ("default-user.png"), :class => "default_image"%>
+        <% end %>
 
         <div class = "profile_text_field">
             <% if @user.user_name %>

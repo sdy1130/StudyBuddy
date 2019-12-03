@@ -23,7 +23,11 @@
         <a class="navbar-brand" href="#">Study Buddy</a>
         <% if current_user %>
           <strong><%= current_user.user_name%> </strong>
-          <%= image_tag ("default-user.png"), :class => "nav_bar_image"%>
+          <% if current_user.file.attached? %>
+            <%= image_tag current_user.file, :class => "nav_bar_image" %>
+          <% else %>
+            <%= image_tag ("default-user.png"), :class => "nav_bar_image"%>
+          <% end %>
         <% end %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>

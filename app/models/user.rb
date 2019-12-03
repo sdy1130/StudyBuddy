@@ -8,6 +8,7 @@ class User < ApplicationRecord
     has_many :posts
     has_and_belongs_to_many :repos
     has_and_belongs_to_many :courses
+    has_one_attached :file
 
     has_many :organizers, :class_name => "Offering", :foreign_key => "organizer"
     has_many :attendees, :class_name => "Offering", :foreign_key => "attendee"

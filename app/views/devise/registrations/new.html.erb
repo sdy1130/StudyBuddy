@@ -3,6 +3,9 @@
 <div class = "signup_form">
 <h2 class = "signup_title"> Sign up </h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="signup_field_margin">
+      Profile image: <%= f.file_field :file %>
+    </div>
 
     <div class ="signup_field_margin">
     <%= f.text_field :user_name, autofocus: true,
