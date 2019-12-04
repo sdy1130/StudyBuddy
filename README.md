@@ -20,7 +20,7 @@ rake db:drop db:create db:migrate
 ## Files management
 - Active storage from rails
 ## Rich text editor
- Action text from rails
+- Action text from rails
 ## User 
 - Devise gem
 - Signup
